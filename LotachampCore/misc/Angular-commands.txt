@@ -1,0 +1,7 @@
+Skapa klasser
+================================================
+ng generate class models/score --type=model
+ng generate class models/participant --type=model
+ng generate class models/tour --type=model
+ng generate class models/sport-event --type=model
+

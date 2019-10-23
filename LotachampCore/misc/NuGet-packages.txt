@@ -1,0 +1,9 @@
+Adding Swagger support (https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.0&tabs=visual-studio)
+===================================================================
+Install-Package Swashbuckle.AspNetCore.Swagger -Version 5.0.0-rc4
+Install-Package Swashbuckle.AspNetCore.SwaggerGen -Version 5.0.0-rc4
+Install-Package Swashbuckle.AspNetCore.SwaggerUi -Version 5.0.0-rc4
+Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc4
+
+
+

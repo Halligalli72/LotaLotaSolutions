@@ -2,4 +2,5 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/LotachampCore/.vs
+/LotachampCore/.vs/LotachampCore/DesignTimeBuild/.dtbcache
+/LotachampCore/.vs/LotachampCore/v16/Server/sqlite3

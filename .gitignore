@@ -4,3 +4,9 @@
 
 /LotachampCore/.vs/LotachampCore/DesignTimeBuild/.dtbcache
 /LotachampCore/.vs/LotachampCore/v16/Server/sqlite3
+/LotachampCore/Lotachamp.Application/bin/Debug/netcoreapp3.0
+/LotachampCore/Lotachamp.Application/obj
+/LotachampCore/Lotachamp.Data/bin/Debug/netcoreapp3.0
+/LotachampCore/Lotachamp.Data/obj
+/LotachampCore/Lotachamp.Models/bin/Debug/netcoreapp3.0
+/LotachampCore/Lotachamp.Models/obj

@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotachamp.Api", "Lotachamp.Api\Lotachamp.Api.csproj", "{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Api", "Lotachamp.Api\Lotachamp.Api.csproj", "{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotachamp.Application", "Lotachamp.Application\Lotachamp.Application.csproj", "{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Models", "Lotachamp.Models\Lotachamp.Models.csproj", "{F384B02B-4499-4412-956B-40EF43436B65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotachamp.Data", "Lotachamp.Data\Lotachamp.Data.csproj", "{9FDB60AE-8690-4811-ADCC-7264D8498F8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F384B02B-4499-4412-956B-40EF43436B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F384B02B-4499-4412-956B-40EF43436B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F384B02B-4499-4412-956B-40EF43436B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F384B02B-4499-4412-956B-40EF43436B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FDB60AE-8690-4811-ADCC-7264D8498F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FDB60AE-8690-4811-ADCC-7264D8498F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FDB60AE-8690-4811-ADCC-7264D8498F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FDB60AE-8690-4811-ADCC-7264D8498F8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

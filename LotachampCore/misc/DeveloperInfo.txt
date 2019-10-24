@@ -1,0 +1,11 @@
+EF Core Migrations
+=================================================================================================
+https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations?view=aspnetcore-3.0
+
+* Lägga till.: dotnet ef migrations add InitialCreate
+* Lista......: dotnet ef migrations list
+* Ta bort....: dotnet ef migrations remove
+               dotnet ef migrations remove --force
+* Skapa db...: dotnet ef database update
+
+* Drop db....: dotnet ef database drop

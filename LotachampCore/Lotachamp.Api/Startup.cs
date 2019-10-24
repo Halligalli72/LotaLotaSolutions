@@ -29,6 +29,8 @@ namespace Lotachamp.Api
             });
 
             services.AddSwaggerSupport();
+
+            services.ConfigureDbContext(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

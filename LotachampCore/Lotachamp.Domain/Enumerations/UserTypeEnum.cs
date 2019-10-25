@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lotachamp.Model.Enumerations
+namespace Lotachamp.Domain.Enumerations
 {
     public enum UserTypeEnum
     {

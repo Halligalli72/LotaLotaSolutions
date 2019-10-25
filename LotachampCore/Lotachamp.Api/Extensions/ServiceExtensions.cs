@@ -1,4 +1,5 @@
-﻿using Lotachamp.Persistance;
+﻿using Lotachamp.Application.Interfaces;
+using Lotachamp.Persistance;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -52,7 +53,7 @@ namespace Lotachamp.Api.Extensions
         public static void ConfigureDbContext(this IServiceCollection services, IConfiguration config)
         {
             var connectionString = config["ConnectionStrings:LotachampDb"];
-            services.AddDbContext<AppDbContext>(o => o.UseSqlServer(connectionString));
+            services.AddDbContext<ILotachampContext, AppDbContext>(o => o.UseSqlServer(connectionString));
         }
 
     }

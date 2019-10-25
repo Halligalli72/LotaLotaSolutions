@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lotachamp.Model.Entities
+namespace Lotachamp.Domain.Entities
 {
     public class Score : BaseEntity
     {

@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lotachamp.Model.Entities
+namespace Lotachamp.Domain.Entities
 {
-    public class Sport : BaseEntity
+    public class SportTemplate : BaseEntity
     {
-        public Sport()
+        public SportTemplate()
         {
-            Scores = new HashSet<Score>();
             Created = DateTime.Now;
         }
 
-        public int SportId { get; set; }
-        public int TourId { get; set; }
-        public string Name { get; set; }
+        public int SportTemplateId { get; set; }
+        public string TemplateName { get; set; }
         public int RankAlgorithmId { get; set; }
         public int MeasurementId { get; set; }
         public bool PictureRequired { get; set; }
@@ -27,7 +25,5 @@ namespace Lotachamp.Model.Entities
 
         public virtual Measurement Measurement { get; set; }
         public virtual RankAlgorithm RankAlgorithm { get; set; }
-        public virtual ICollection<Score> Scores { get; private set; }
-        public virtual Tour Tour { get; set; }
     }
 }

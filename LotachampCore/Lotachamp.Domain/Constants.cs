@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
 
-namespace Lotachamp.Model
+namespace Lotachamp.Domain
 {
     public static class Constants
     {

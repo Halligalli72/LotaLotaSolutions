@@ -1,6 +1,6 @@
-﻿using Lotachamp.Model;
-using Lotachamp.Model.Entities;
-using Lotachamp.Model.Enumerations;
+﻿using Lotachamp.Domain;
+using Lotachamp.Domain.Entities;
+using Lotachamp.Domain.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Linq;

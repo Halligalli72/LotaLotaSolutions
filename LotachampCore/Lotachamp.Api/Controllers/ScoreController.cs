@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Lotachamp.Api.DataTransfer;
+using Lotachamp.Application.Interfaces;
+using Lotachamp.Application.Managers;
+using Lotachamp.Persistance;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lotachamp.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ScoreController : ControllerBase
+    public class ScoreController : BaseController
     {
+        private readonly ScoreManager _scoreMgr;
+
+        public ScoreController(ILotachampContext ctx) 
+        {
+            _scoreMgr = new ScoreManager(ctx);
+        }
+
         /// <summary>
         /// Gets a score by its id
         /// </summary>
@@ -20,7 +28,7 @@ namespace Lotachamp.Api.Controllers
         [ProducesResponseType(typeof(ScoreDto),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        [HttpGet]
+        [HttpGet("{scoreId}")]
         public IActionResult GetById(Guid scoreId) 
         {
             if (scoreId.Equals(Guid.Empty))
@@ -37,6 +45,15 @@ namespace Lotachamp.Api.Controllers
         }
 
 
+        [ProducesResponseType(typeof(IEnumerable<ScoreDto>), StatusCodes.Status200OK)]
+        [HttpGet]
+        public IActionResult All() 
+        {
+            var result = _scoreMgr.GetAll();
+
+            return Ok(result);
+
+        }
 
     }
 }

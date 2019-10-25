@@ -1,9 +1,9 @@
-﻿using Lotachamp.Model.Entities;
+﻿using Lotachamp.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lotachamp.Model.Entities
+namespace Lotachamp.Domain.Entities
 {
     public class Tour : BaseEntity
     {

@@ -1,16 +1,18 @@
-﻿using Lotachamp.Model.Entities;
+﻿using Lotachamp.Application.Interfaces;
+using Lotachamp.Domain.Entities;
 using Lotachamp.Persistance.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace Lotachamp.Persistance
 {
-    public class AppDbContext : DbContext //IdentityDbContext<AppUser, AppRole, string>
+    public class AppDbContext : DbContext , ILotachampContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
         {
         }
+
         public DbSet<Measurement> Measurements { get; set; }
 
         public DbSet<Participant> Participants { get; set; }
@@ -21,25 +23,26 @@ namespace Lotachamp.Persistance
 
         public DbSet<Score> Scores { get; set; }
 
-        public DbSet<Sport> SportEvents { get; set; }
-
-        public DbSet<SportTemplate> SportEventTemplates { get; set; }
-
         public DbSet<Tour> Tours { get; set; }
 
         public DbSet<Invite> Invites { get; set; }
 
+        public DbSet<Sport> Sports { get; set; }
+        
+        public DbSet<SportTemplate> SportTemplates { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new InviteConfiguration());
-            modelBuilder.ApplyConfiguration(new MeasurementConfiguration());
-            modelBuilder.ApplyConfiguration(new ParticipantConfiguration());
-            modelBuilder.ApplyConfiguration(new PictureConfiguration());
-            modelBuilder.ApplyConfiguration(new RankAlgorithmConfiguration());
-            modelBuilder.ApplyConfiguration(new ScoreConfiguration());
-            modelBuilder.ApplyConfiguration(new SportConfiguration());
-            modelBuilder.ApplyConfiguration(new SportTemplateConfiguration());
-            modelBuilder.ApplyConfiguration(new TourConfiguration());
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+            //modelBuilder.ApplyConfiguration(new InviteConfiguration());
+            //modelBuilder.ApplyConfiguration(new MeasurementConfiguration());
+            //modelBuilder.ApplyConfiguration(new ParticipantConfiguration());
+            //modelBuilder.ApplyConfiguration(new PictureConfiguration());
+            //modelBuilder.ApplyConfiguration(new RankAlgorithmConfiguration());
+            //modelBuilder.ApplyConfiguration(new ScoreConfiguration());
+            //modelBuilder.ApplyConfiguration(new SportConfiguration());
+            //modelBuilder.ApplyConfiguration(new SportTemplateConfiguration());
+            //modelBuilder.ApplyConfiguration(new TourConfiguration());
         }
 
     }

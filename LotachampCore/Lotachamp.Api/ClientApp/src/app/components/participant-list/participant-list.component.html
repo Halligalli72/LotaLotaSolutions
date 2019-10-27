@@ -1,0 +1,21 @@
+<div class="container">
+    <h3>Participant list</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Alias</th>
+                <th>Admin</th>
+                <th>Official</th>
+                <th>Competing</th>
+                <th>Created</th>
+            </tr>
+            <tr *ngFor="let p of participants">
+                <td>{{ p.name }} </td>
+                <td>{{ p.alias }} </td>
+                <td>{{ p.isTourAdmin }} </td>
+                <td>{{ p.isTourOfficial }} </td>
+                <td>{{ p.isCompeting }} </td>
+                <td>{{ p.created }} </td>
+            </tr>
+    </table>
+</div>

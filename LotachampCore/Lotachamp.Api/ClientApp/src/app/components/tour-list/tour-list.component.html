@@ -1,0 +1,22 @@
+<div class="container">
+    <h3>Tour list</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Starts</th>
+                <th>Ends</th>
+                <th>Public</th>
+                <th>Created</th>
+            </tr>
+            <tr *ngFor="let item of tours">
+                <td>{{ item.name }} </td>
+                <td>{{ item.description }} </td>
+                <td>{{ item.startDate }} </td>
+                <td>{{ item.endDate }} </td>
+                <td>{{ item.isPublic }} </td>
+                <td>{{ item.created }} </td>
+            </tr>
+    </table>
+</div>
+

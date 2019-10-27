@@ -16,12 +16,10 @@ export class SportListComponent implements OnInit {
     this.sportSvc.getByTour(1)
     .subscribe(
       (data: Sport[]) => {
-       console.log('OK!');
        this.sports = data;
     }, (error: any) => {
       console.error('Error: ', error);
-    }
-    );
+    });
   }
 
 }

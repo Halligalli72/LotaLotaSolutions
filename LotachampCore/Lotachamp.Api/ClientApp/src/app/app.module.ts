@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ParticipantListComponent } from './components/participant-list/participant-list.component';
 import { SportListComponent } from './components/sport-list/sport-list.component';
+import { TourListComponent } from './components/tour-list/tour-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SportListComponent } from './components/sport-list/sport-list.component
     CounterComponent,
     FetchDataComponent,
     ParticipantListComponent,
-    SportListComponent
+    SportListComponent,
+    TourListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,10 +34,11 @@ import { SportListComponent } from './components/sport-list/sport-list.component
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'participants', component: ParticipantListComponent },
       { path: 'sports', component: SportListComponent },
+      { path: 'tours', component: TourListComponent },
     ])
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [ParticipantListComponent, SportListComponent]
+  exports: [ParticipantListComponent, SportListComponent, TourListComponent]
 })
 export class AppModule { }

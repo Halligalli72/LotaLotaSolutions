@@ -16,8 +16,10 @@ export class ParticipantListComponent implements OnInit {
     this.participantSvc.getByTour(1)
     .subscribe(
       (data: Participant[]) => {
-       // console.log('OK!');
        this.participants = data;
+    },
+    (error: any) => {
+      console.error('Error: ', error);
     });
   }
 

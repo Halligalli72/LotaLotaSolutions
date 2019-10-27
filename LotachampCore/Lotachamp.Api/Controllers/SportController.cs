@@ -17,11 +17,12 @@ namespace Lotachamp.Api.Controllers
         {
             _manager = new SportManager(ctx);
         }
+
         [ProducesResponseType(typeof(SportDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult Get(int id)
         {
             if (id <= 0 )
                 return BadRequest("Invalid id.");
@@ -36,7 +37,7 @@ namespace Lotachamp.Api.Controllers
 
         [ProducesResponseType(typeof(IEnumerable<SportDto>), StatusCodes.Status200OK)]
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult GetAll()
         {
             return Ok(_manager.GetAll().AsDtos());
         }

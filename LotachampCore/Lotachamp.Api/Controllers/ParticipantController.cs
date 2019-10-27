@@ -21,7 +21,7 @@ namespace Lotachamp.Api.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        public IActionResult Get(Guid id)
         {
             if (id.Equals(Guid.Empty))
                 return BadRequest("Empty guid.");
@@ -36,7 +36,7 @@ namespace Lotachamp.Api.Controllers
 
         [ProducesResponseType(typeof(IEnumerable<ParticipantDto>), StatusCodes.Status200OK)]
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult GetAll()
         {
             return Ok(_manager.GetAll().AsDtos());
         }

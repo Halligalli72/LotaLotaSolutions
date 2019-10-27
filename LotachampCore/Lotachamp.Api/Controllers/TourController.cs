@@ -43,13 +43,6 @@ namespace Lotachamp.Api.Controllers
 
         [ProducesResponseType(typeof(IEnumerable<TourDto>), StatusCodes.Status200OK)]
         [HttpGet]
-        public IActionResult GetFuture()
-        {
-            return Ok(_manager.GetFuture().AsDtos());
-        }
-
-        [ProducesResponseType(typeof(IEnumerable<TourDto>), StatusCodes.Status200OK)]
-        [HttpGet]
         public IActionResult GetPassed()
         {
             return Ok(_manager.GetPassed().AsDtos());
@@ -60,6 +53,13 @@ namespace Lotachamp.Api.Controllers
         public IActionResult GetOngoing()
         {
             return Ok(_manager.GetOngoing().AsDtos());
+        }
+
+        [ProducesResponseType(typeof(IEnumerable<TourDto>), StatusCodes.Status200OK)]
+        [HttpGet]
+        public IActionResult GetFuture()
+        {
+            return Ok(_manager.GetFuture().AsDtos());
         }
     }
 }

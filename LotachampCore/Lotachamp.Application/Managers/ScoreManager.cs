@@ -21,7 +21,7 @@ namespace Lotachamp.Application.Managers
 
         public Score GetById(Guid scoreId) 
         {
-            return _ctx.Scores.Where(s => s.ScoreId.Equals(scoreId)).FirstOrDefault();
+            return _ctx.Scores.Where(o => o.ScoreId.Equals(scoreId)).FirstOrDefault();
         }
     }
 }

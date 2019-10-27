@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Lotachamp.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Lotachamp.Api.DataTransfer
 {
+    /// <summary>
+    /// Data transfer object for a score
+    /// </summary>
     public class ScoreDto
     {
         public Guid ScoreId { get; set; }
@@ -13,7 +17,9 @@ namespace Lotachamp.Api.DataTransfer
         public int ResultValue { get; set; }
         public string ResultUnit { get; set; } = string.Empty;
         public string ParticipantName { get; set; } = string.Empty;
+        public string SportName { get; set; } = string.Empty;
         public string ImageUrl { get; set; } = string.Empty;
+        public string ImageText { get; set; } = string.Empty;
         public string Notes { get; set; } = string.Empty;
         public int Points { get; set; }
         public int Rank { get; set; }
@@ -21,5 +27,37 @@ namespace Lotachamp.Api.DataTransfer
         public string CreatedBy { get; set; } = string.Empty;
         public DateTime? Updated { get; set; }
         public string UpdatedBy { get; set; } = string.Empty;
+    }
+
+    
+    public static class ScoreDtoBuilder
+    {
+        public static ScoreDto AsDto(this Score obj) 
+        {
+            return new List<Score> { obj }.AsDtos().Single();
+        }
+
+        public static IEnumerable<ScoreDto> AsDtos(this IEnumerable<Score> entities) 
+        {
+            return from e in entities
+                   select new ScoreDto 
+                   {
+                       ScoreId = e.ScoreId,
+                       TourId = e.Sport.TourId,
+                       ParticipantName = e.Participant.Name,
+                       SportName = e.Sport.Name,
+                       ResultValue = e.ResultValue,
+                       ResultUnit = e.Sport.Measurement.ResultUnit,
+                       Notes = e.Notes,
+                       ImageUrl = e.Pictures?.FirstOrDefault().ImagePath,
+                       ImageText = e.Pictures?.FirstOrDefault().ImageText,
+                       Points = 0,
+                       Rank = 0,
+                       Created = e.Created,
+                       CreatedBy = e.CreatedBy,
+                       Updated = e.Updated,
+                       UpdatedBy = e.UpdatedBy
+                   };
+        }
     }
 }

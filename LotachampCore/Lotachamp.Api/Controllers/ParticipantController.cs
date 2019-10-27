@@ -8,43 +8,46 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lotachamp.Api.Controllers
 {
-    public class ScoreController : BaseController
+    public class ParticipantController : BaseController
     {
-        private readonly ScoreManager _manager;
+        private readonly ParticipantManager _manager;
 
-        public ScoreController(ILotachampContext ctx) 
+        public ParticipantController(ILotachampContext ctx)
         {
-            _manager = new ScoreManager(ctx);
+            _manager = new ParticipantManager(ctx);
         }
 
-        /// <summary>
-        /// Gets a score by its id
-        /// </summary>
-        /// <param name="id">Id</param>
-        /// <returns></returns>
-        [ProducesResponseType(typeof(ScoreDto),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ParticipantDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id) 
+        public IActionResult GetById(Guid id)
         {
             if (id.Equals(Guid.Empty))
                 return BadRequest("Empty guid.");
 
             var result = _manager.GetById(id);
+
             if (result != null)
                 return Ok(result.AsDto());
 
-            return NotFound($"Could not find score with id: {id}.");
+            return NotFound($"Could not find participant with id: {id}.");
         }
 
-
-        [ProducesResponseType(typeof(IEnumerable<ScoreDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<ParticipantDto>), StatusCodes.Status200OK)]
         [HttpGet]
-        public IActionResult All() 
+        public IActionResult Index()
         {
             return Ok(_manager.GetAll().AsDtos());
         }
+
+        [ProducesResponseType(typeof(IEnumerable<ParticipantDto>), StatusCodes.Status200OK)]
+        [HttpGet("{tourId}")]
+        public IActionResult GetByTour(int tourId)
+        {
+            return Ok(_manager.GetByTour(tourId).AsDtos());
+        }
+
 
     }
 }

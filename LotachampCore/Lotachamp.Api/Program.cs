@@ -24,6 +24,7 @@ namespace Lotachamp.Api
                 }
                 catch (Exception ex)
                 {
+                    //TODO: Add logging
                     //var logsvc = scope.ServiceProvider.GetService<ILoggingService>();
                     //logsvc.LogError(ex, "An error occurred while migrating or initializing the database.");
                 }

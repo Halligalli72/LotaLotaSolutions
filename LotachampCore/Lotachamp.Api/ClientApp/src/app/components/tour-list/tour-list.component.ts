@@ -11,6 +11,8 @@ export class TourListComponent implements OnInit {
 
   constructor(private tourSvc: TourService) { }
     tours: Tour[];
+    selectedTour: Tour;
+
   ngOnInit() {
     this.tourSvc.getOngoing()
     .subscribe(
@@ -20,7 +22,7 @@ export class TourListComponent implements OnInit {
     }, (error: any) => {
       console.error('Error: ', error);
     });
-
   }
 
+  select(tour: Tour) { this.selectedTour = tour; }
 }

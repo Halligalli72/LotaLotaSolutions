@@ -15,7 +15,7 @@
                 <td>{{ p.isTourAdmin }} </td>
                 <td>{{ p.isTourOfficial }} </td>
                 <td>{{ p.isCompeting }} </td>
-                <td>{{ p.created }} </td>
+                <td>{{ p.created | date:'yyyy-MM-dd HH:mm' }} </td>
             </tr>
     </table>
 </div>

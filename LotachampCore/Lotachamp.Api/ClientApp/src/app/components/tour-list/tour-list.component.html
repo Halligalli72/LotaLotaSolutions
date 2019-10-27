@@ -12,10 +12,10 @@
             <tr *ngFor="let item of tours">
                 <td>{{ item.name }} </td>
                 <td>{{ item.description }} </td>
-                <td>{{ item.startDate }} </td>
-                <td>{{ item.endDate }} </td>
+                <td>{{ item.startDate | date:'yyyy-MM-dd' }} </td>
+                <td>{{ item.endDate | date:'yyyy-MM-dd' }} </td>
                 <td>{{ item.isPublic }} </td>
-                <td>{{ item.created }} </td>
+                <td>{{ item.created | date:'yyyy-MM-dd HH:mm' }} </td>
             </tr>
     </table>
 </div>

@@ -1,7 +1,11 @@
-Skapa klasser
-================================================
-ng generate class models/score --type=model
-ng generate class models/participant --type=model
-ng generate class models/tour --type=model
-ng generate class models/sport-event --type=model
+Angular CLI
+=================================================================================================
+https://angular.io/cli/generate
+
+Skapa model....: ng generate class _models\[name] --type=model --skipTests=true
+
+Skapa service..: ng generate service _services\[name]
+
+Skapa komponent.: ng generate component components\[name] --module=app --export=true
+
 

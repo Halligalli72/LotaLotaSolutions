@@ -1,0 +1,31 @@
+<div class="container">
+    <h3>Sport list</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Unit</th>
+                <th>Picture</th>
+                <th>P1</th>
+                <th>P2</th>
+                <th>P3</th>
+                <th>P4</th>
+                <th>P5</th>
+                <th>Seed</th>
+                <th>Created</th>
+            </tr>
+            <tr *ngFor="let item of sports">
+                <td>{{ item.name }} </td>
+                <td>{{ item.rankAlgorithmName }} </td>
+                <td>{{ item.measurementName }} </td>
+                <td>{{ item.pictureRequired }} </td>
+                <td>{{ item.p1 }} </td>
+                <td>{{ item.p2 }} </td>
+                <td>{{ item.p3 }} </td>
+                <td>{{ item.p4 }} </td>
+                <td>{{ item.p5 }} </td>
+                <td>{{ item.seedPoint }} </td>
+                <td>{{ item.created }} </td>
+            </tr>
+    </table>
+</div>

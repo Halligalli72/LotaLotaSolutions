@@ -12,15 +12,5 @@ https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations?view=aspnetc
 
 
 
-Angular CLI
-=================================================================================================
-https://angular.io/cli/generate
-
-Skapa model....: ng generate class _models\[name] --type=model --skipTests=true
-
-Skapa service..: ng generate service _services\[name]
-
-Skapa komponent.: ng generate component components\[name] --module=app --export=true
-
 
 

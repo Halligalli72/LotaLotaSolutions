@@ -1,5 +1,6 @@
 ﻿using Lotachamp.Application.Interfaces;
 using Lotachamp.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,10 @@ namespace Lotachamp.Application.Managers
         }
         public IEnumerable<Sport> GetByTour(int tourId)
         {
-            return _ctx.Sports.Where(o => o.TourId.Equals(tourId)).AsEnumerable();
+            return _ctx.Sports.Where(o => o.TourId.Equals(tourId))
+                .Include(s => s.Measurement)
+                .Include(s => s.RankAlgorithm)
+                .AsEnumerable();
         }
 
     }

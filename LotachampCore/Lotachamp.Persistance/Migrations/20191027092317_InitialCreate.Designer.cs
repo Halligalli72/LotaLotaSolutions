@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lotachamp.Persistance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191024192637_InitialCreate")]
+    [Migration("20191027092317_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace Lotachamp.Persistance.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Invite", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Invite", b =>
                 {
                     b.Property<Guid>("InviteId")
                         .ValueGeneratedOnAdd()
@@ -72,7 +72,7 @@ namespace Lotachamp.Persistance.Migrations
                     b.ToTable("Invite");
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Measurement", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Measurement", b =>
                 {
                     b.Property<int>("MeasurementId")
                         .HasColumnType("int");
@@ -119,7 +119,7 @@ namespace Lotachamp.Persistance.Migrations
                     b.ToTable("Measurement");
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Participant", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Participant", b =>
                 {
                     b.Property<Guid>("ParticipantId")
                         .ValueGeneratedOnAdd()
@@ -180,7 +180,7 @@ namespace Lotachamp.Persistance.Migrations
                     b.ToTable("Participant");
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Picture", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Picture", b =>
                 {
                     b.Property<int>("PictureId")
                         .ValueGeneratedOnAdd()
@@ -235,7 +235,7 @@ namespace Lotachamp.Persistance.Migrations
                     b.ToTable("Picture");
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.RankAlgorithm", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.RankAlgorithm", b =>
                 {
                     b.Property<int>("RankAlgorithmId")
                         .HasColumnType("int");
@@ -267,7 +267,7 @@ namespace Lotachamp.Persistance.Migrations
                     b.ToTable("RankAlgorithm");
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Score", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Score", b =>
                 {
                     b.Property<Guid>("ScoreId")
                         .ValueGeneratedOnAdd()
@@ -318,7 +318,7 @@ namespace Lotachamp.Persistance.Migrations
                     b.ToTable("Score");
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Sport", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Sport", b =>
                 {
                     b.Property<int>("SportId")
                         .ValueGeneratedOnAdd()
@@ -387,10 +387,10 @@ namespace Lotachamp.Persistance.Migrations
 
                     b.HasIndex("TourId");
 
-                    b.ToTable("SportEvent");
+                    b.ToTable("Sport");
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.SportTemplate", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.SportTemplate", b =>
                 {
                     b.Property<int>("SportTemplateId")
                         .ValueGeneratedOnAdd()
@@ -452,10 +452,10 @@ namespace Lotachamp.Persistance.Migrations
 
                     b.HasIndex("RankAlgorithmId");
 
-                    b.ToTable("SportEventTemplate");
+                    b.ToTable("SportTemplate");
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Tour", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Tour", b =>
                 {
                     b.Property<int>("TourId")
                         .ValueGeneratedOnAdd()
@@ -505,73 +505,73 @@ namespace Lotachamp.Persistance.Migrations
                     b.ToTable("Tour");
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Participant", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Participant", b =>
                 {
-                    b.HasOne("Lotachamp.Model.Entities.Invite", "Invite")
+                    b.HasOne("Lotachamp.Domain.Entities.Invite", "Invite")
                         .WithMany()
                         .HasForeignKey("InviteId1");
 
-                    b.HasOne("Lotachamp.Model.Entities.Tour", "Tour")
+                    b.HasOne("Lotachamp.Domain.Entities.Tour", "Tour")
                         .WithMany("Participants")
                         .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Picture", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Picture", b =>
                 {
-                    b.HasOne("Lotachamp.Model.Entities.Score", "Score")
+                    b.HasOne("Lotachamp.Domain.Entities.Score", "Score")
                         .WithMany("Pictures")
                         .HasForeignKey("ScoreId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Score", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Score", b =>
                 {
-                    b.HasOne("Lotachamp.Model.Entities.Participant", "Participant")
+                    b.HasOne("Lotachamp.Domain.Entities.Participant", "Participant")
                         .WithMany("Scores")
                         .HasForeignKey("ParticipantId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Lotachamp.Model.Entities.Sport", "Sport")
+                    b.HasOne("Lotachamp.Domain.Entities.Sport", "Sport")
                         .WithMany("Scores")
                         .HasForeignKey("SportId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.Sport", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.Sport", b =>
                 {
-                    b.HasOne("Lotachamp.Model.Entities.Measurement", "Measurement")
+                    b.HasOne("Lotachamp.Domain.Entities.Measurement", "Measurement")
                         .WithMany()
                         .HasForeignKey("MeasurementId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Lotachamp.Model.Entities.RankAlgorithm", "RankAlgorithm")
+                    b.HasOne("Lotachamp.Domain.Entities.RankAlgorithm", "RankAlgorithm")
                         .WithMany()
                         .HasForeignKey("RankAlgorithmId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Lotachamp.Model.Entities.Tour", "Tour")
+                    b.HasOne("Lotachamp.Domain.Entities.Tour", "Tour")
                         .WithMany("Sports")
                         .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Lotachamp.Model.Entities.SportTemplate", b =>
+            modelBuilder.Entity("Lotachamp.Domain.Entities.SportTemplate", b =>
                 {
-                    b.HasOne("Lotachamp.Model.Entities.Measurement", "Measurement")
+                    b.HasOne("Lotachamp.Domain.Entities.Measurement", "Measurement")
                         .WithMany()
                         .HasForeignKey("MeasurementId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Lotachamp.Model.Entities.RankAlgorithm", "RankAlgorithm")
+                    b.HasOne("Lotachamp.Domain.Entities.RankAlgorithm", "RankAlgorithm")
                         .WithMany()
                         .HasForeignKey("RankAlgorithmId")
                         .OnDelete(DeleteBehavior.Cascade)

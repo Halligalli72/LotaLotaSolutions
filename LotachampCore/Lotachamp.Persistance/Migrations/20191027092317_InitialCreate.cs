@@ -85,7 +85,7 @@ namespace Lotachamp.Persistance.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SportEventTemplate",
+                name: "SportTemplate",
                 columns: table => new
                 {
                     SportTemplateId = table.Column<int>(nullable: false)
@@ -107,15 +107,15 @@ namespace Lotachamp.Persistance.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SportEventTemplate", x => x.SportTemplateId);
+                    table.PrimaryKey("PK_SportTemplate", x => x.SportTemplateId);
                     table.ForeignKey(
-                        name: "FK_SportEventTemplate_Measurement_MeasurementId",
+                        name: "FK_SportTemplate_Measurement_MeasurementId",
                         column: x => x.MeasurementId,
                         principalTable: "Measurement",
                         principalColumn: "MeasurementId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SportEventTemplate_RankAlgorithm_RankAlgorithmId",
+                        name: "FK_SportTemplate_RankAlgorithm_RankAlgorithmId",
                         column: x => x.RankAlgorithmId,
                         principalTable: "RankAlgorithm",
                         principalColumn: "RankAlgorithmId",
@@ -158,7 +158,7 @@ namespace Lotachamp.Persistance.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SportEvent",
+                name: "Sport",
                 columns: table => new
                 {
                     SportId = table.Column<int>(nullable: false)
@@ -181,21 +181,21 @@ namespace Lotachamp.Persistance.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SportEvent", x => x.SportId);
+                    table.PrimaryKey("PK_Sport", x => x.SportId);
                     table.ForeignKey(
-                        name: "FK_SportEvent_Measurement_MeasurementId",
+                        name: "FK_Sport_Measurement_MeasurementId",
                         column: x => x.MeasurementId,
                         principalTable: "Measurement",
                         principalColumn: "MeasurementId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SportEvent_RankAlgorithm_RankAlgorithmId",
+                        name: "FK_Sport_RankAlgorithm_RankAlgorithmId",
                         column: x => x.RankAlgorithmId,
                         principalTable: "RankAlgorithm",
                         principalColumn: "RankAlgorithmId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SportEvent_Tour_TourId",
+                        name: "FK_Sport_Tour_TourId",
                         column: x => x.TourId,
                         principalTable: "Tour",
                         principalColumn: "TourId",
@@ -227,9 +227,9 @@ namespace Lotachamp.Persistance.Migrations
                         principalColumn: "ParticipantId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Score_SportEvent_SportId",
+                        name: "FK_Score_Sport_SportId",
                         column: x => x.SportId,
-                        principalTable: "SportEvent",
+                        principalTable: "Sport",
                         principalColumn: "SportId",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -288,28 +288,28 @@ namespace Lotachamp.Persistance.Migrations
                 column: "SportId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SportEvent_MeasurementId",
-                table: "SportEvent",
+                name: "IX_Sport_MeasurementId",
+                table: "Sport",
                 column: "MeasurementId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SportEvent_RankAlgorithmId",
-                table: "SportEvent",
+                name: "IX_Sport_RankAlgorithmId",
+                table: "Sport",
                 column: "RankAlgorithmId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SportEvent_TourId",
-                table: "SportEvent",
+                name: "IX_Sport_TourId",
+                table: "Sport",
                 column: "TourId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SportEventTemplate_MeasurementId",
-                table: "SportEventTemplate",
+                name: "IX_SportTemplate_MeasurementId",
+                table: "SportTemplate",
                 column: "MeasurementId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SportEventTemplate_RankAlgorithmId",
-                table: "SportEventTemplate",
+                name: "IX_SportTemplate_RankAlgorithmId",
+                table: "SportTemplate",
                 column: "RankAlgorithmId");
         }
 
@@ -319,7 +319,7 @@ namespace Lotachamp.Persistance.Migrations
                 name: "Picture");
 
             migrationBuilder.DropTable(
-                name: "SportEventTemplate");
+                name: "SportTemplate");
 
             migrationBuilder.DropTable(
                 name: "Score");
@@ -328,7 +328,7 @@ namespace Lotachamp.Persistance.Migrations
                 name: "Participant");
 
             migrationBuilder.DropTable(
-                name: "SportEvent");
+                name: "Sport");
 
             migrationBuilder.DropTable(
                 name: "Invite");

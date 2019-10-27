@@ -15,8 +15,8 @@ namespace Lotachamp.Persistance
         private readonly Dictionary<int, Picture> Pictures = new Dictionary<int, Picture>();
         private readonly Dictionary<int, RankAlgorithm> RankAlgorithms = new Dictionary<int, RankAlgorithm>();
         private readonly Dictionary<int, Score> Scores = new Dictionary<int, Score>();
-        private readonly Dictionary<int, Sport> SportEvents = new Dictionary<int, Sport>();
-        private readonly Dictionary<int, SportTemplate> SportEventTemplates = new Dictionary<int, SportTemplate>();
+        private readonly Dictionary<int, Sport> Sports = new Dictionary<int, Sport>();
+        private readonly Dictionary<int, SportTemplate> SportTemplates = new Dictionary<int, SportTemplate>();
         private readonly Dictionary<int, Tour> Tours = new Dictionary<int, Tour>();
 
         public static void Initialize(AppDbContext context)
@@ -96,8 +96,7 @@ namespace Lotachamp.Persistance
             ctx.SaveChanges();
 
             //Tour
-            int tourId = 1;
-            var tour = new Tour { TourId = tourId, Name = "Lotachamp 2019", Description = "Lota lotas turnering", StartDate = DateTime.Parse("2019-04-01"), EndDate = DateTime.Parse("2019-12-31"), CreatedBy = "setup" };
+            var tour = new Tour { Name = "Lotachamp 2019", Description = "Lota lotas turnering", StartDate = DateTime.Parse("2019-04-01"), EndDate = DateTime.Parse("2019-12-31"), CreatedBy = "setup" };
             ctx.Tours.Add(tour);
 
             //SportEvents
@@ -134,9 +133,6 @@ namespace Lotachamp.Persistance
             foreach (var p in participants)
                 tour.Participants.Add(p);
             ctx.SaveChanges();
-
-
-            //throw new NotImplementedException();
         }
 
         private static byte[] StringToByteArray(string hex)

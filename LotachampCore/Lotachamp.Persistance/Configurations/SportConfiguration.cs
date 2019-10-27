@@ -8,7 +8,7 @@ namespace Lotachamp.Persistance.Configurations
     {
         public void Configure(EntityTypeBuilder<Sport> builder)
         {
-            builder.ToTable("SportEvent");
+            builder.ToTable("Sport");
             builder.Property(p => p.SportId).IsRequired().UseIdentityColumn();
             builder.Property(p => p.TourId).IsRequired();
             builder.Property(p => p.Name).IsRequired().HasMaxLength(50);

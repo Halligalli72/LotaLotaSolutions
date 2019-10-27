@@ -8,7 +8,7 @@ namespace Lotachamp.Persistance.Configurations
     {
         public void Configure(EntityTypeBuilder<SportTemplate> builder)
         {
-            builder.ToTable("SportEventTemplate");
+            builder.ToTable("SportTemplate");
             builder.Property(p => p.SportTemplateId).IsRequired().UseIdentityColumn();
             builder.Property(p => p.RankAlgorithmId).IsRequired();
             builder.Property(p => p.MeasurementId).IsRequired();

@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Lotachamp.Application.Managers
+namespace Lotachamp.Application.Services
 {
-    public class ScoreManager
+    public class ScoreService
     {
         private readonly ILotachampContext _ctx;
-        public ScoreManager(ILotachampContext ctx) 
+        public ScoreService(ILotachampContext ctx) 
         {
             _ctx = ctx;
         }

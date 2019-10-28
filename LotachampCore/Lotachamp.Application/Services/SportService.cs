@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Lotachamp.Application.Managers
+namespace Lotachamp.Application.Services
 {
-    public class SportManager
+    public class SportService
     {
         private readonly ILotachampContext _ctx;
 
-        public SportManager(ILotachampContext ctx)
+        public SportService(ILotachampContext ctx)
         {
             _ctx = ctx;
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Lotachamp.Api.DataTransfer;
 using Lotachamp.Application.Interfaces;
-using Lotachamp.Application.Managers;
+using Lotachamp.Application.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,11 +10,11 @@ namespace Lotachamp.Api.Controllers
 {
     public class TourController : BaseController
     {
-        private readonly TourManager _manager;
+        private readonly TourService _manager;
 
         public TourController(ILotachampContext ctx)
         {
-            _manager = new TourManager(ctx);
+            _manager = new TourService(ctx);
         }
 
         [ProducesResponseType(typeof(TourDto), StatusCodes.Status200OK)]

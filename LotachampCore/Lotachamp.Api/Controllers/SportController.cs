@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Lotachamp.Api.DataTransfer;
 using Lotachamp.Application.Interfaces;
-using Lotachamp.Application.Managers;
+using Lotachamp.Application.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +11,11 @@ namespace Lotachamp.Api.Controllers
     public class SportController : BaseController
     {
 
-        private readonly SportManager _manager;
+        private readonly SportService _manager;
 
         public SportController(ILotachampContext ctx)
         {
-            _manager = new SportManager(ctx);
+            _manager = new SportService(ctx);
         }
 
         [ProducesResponseType(typeof(SportDto), StatusCodes.Status200OK)]

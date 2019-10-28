@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Lotachamp.Api.DataTransfer;
 using Lotachamp.Application.Interfaces;
-using Lotachamp.Application.Managers;
+using Lotachamp.Application.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,11 +10,11 @@ namespace Lotachamp.Api.Controllers
 {
     public class ScoreController : BaseController
     {
-        private readonly ScoreManager _manager;
+        private readonly ScoreService _manager;
 
         public ScoreController(ILotachampContext ctx) 
         {
-            _manager = new ScoreManager(ctx);
+            _manager = new ScoreService(ctx);
         }
 
         /// <summary>

@@ -3,11 +3,11 @@ import { TourService } from 'src/app/_services/tour.service';
 import { Tour } from 'src/app/_models/tour.model';
 
 @Component({
-  selector: 'app-tour-list',
-  templateUrl: './tour-list.component.html',
-  styleUrls: ['./tour-list.component.css']
+  selector: 'app-tours',
+  templateUrl: './tours.component.html',
+  styleUrls: ['./tours.component.css']
 })
-export class TourListComponent implements OnInit {
+export class ToursComponent implements OnInit {
 
   constructor(private tourSvc: TourService) { }
     tours: Tour[];
@@ -23,5 +23,11 @@ export class TourListComponent implements OnInit {
     });
   }
 
-  onSelect(tour: Tour) { this.selectedTour = tour; }
+  onSelect(tour: Tour) {
+    if (this.selectedTour === tour){
+      this.selectedTour = null;
+    } else {
+      this.selectedTour = tour;
+    }
+  }
 }

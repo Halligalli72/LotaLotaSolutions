@@ -3,11 +3,11 @@ import { SportService } from 'src/app/_services/sport.service';
 import { Sport } from 'src/app/_models/sport.model';
 
 @Component({
-  selector: 'app-sport-list',
-  templateUrl: './sport-list.component.html',
-  styleUrls: ['./sport-list.component.css']
+  selector: 'app-sports',
+  templateUrl: './sports.component.html',
+  styleUrls: ['./sports.component.css']
 })
-export class SportListComponent implements OnInit {
+export class SportsComponent implements OnInit {
   private sports: Sport[];
 
   constructor(private sportSvc: SportService) { }

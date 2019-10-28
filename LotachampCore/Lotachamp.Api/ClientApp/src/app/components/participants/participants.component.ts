@@ -3,11 +3,11 @@ import { Participant } from 'src/app/_models/participant.model';
 import { ParticipantService } from 'src/app/_services/participant.service';
 
 @Component({
-  selector: 'app-participant-list',
-  templateUrl: './participant-list.component.html',
-  styleUrls: ['./participant-list.component.css']
+  selector: 'app-participants',
+  templateUrl: './participants.component.html',
+  styleUrls: ['./participants.component.css']
 })
-export class ParticipantListComponent implements OnInit {
+export class ParticipantsComponent implements OnInit {
     private participants: Participant[];
 
   constructor(private participantSvc: ParticipantService) { }

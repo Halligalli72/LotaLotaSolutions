@@ -1,0 +1,9 @@
+<div *ngIf="tour">
+  <h5>About '{{tour.name}}'</h5>
+  <div><span>Start date:</span><span>{{tour.startDate | date:'yyyy-MM-dd'}}</span></div>
+  <div><span>End date:</span><span>{{tour.endDate | date:'yyyy-MM-dd'}}</span></div>
+  <div><span>Description:</span><span>{{tour.description}}</span></div>
+  <div><span>Public:</span><span>{{tour.isPublic}}</span></div>
+  <div><span>Created:</span><span>{{tour.created | date:'yyyy-MM-dd'}}</span></div>
+  <div><span>Created by:</span><span>{{tour.createdBy}}</span></div>
+</div>

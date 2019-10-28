@@ -1,22 +1,18 @@
 <div class="container">
-    <h3>Tour list</h3>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Starts</th>
-                <th>Ends</th>
-                <th>Public</th>
-                <th>Created</th>
-            </tr>
-            <tr *ngFor="let item of tours">
-                <td>{{ item.name }} </td>
-                <td>{{ item.description }} </td>
-                <td>{{ item.startDate | date:'yyyy-MM-dd' }} </td>
-                <td>{{ item.endDate | date:'yyyy-MM-dd' }} </td>
-                <td>{{ item.isPublic }} </td>
-                <td>{{ item.created | date:'yyyy-MM-dd HH:mm' }} </td>
-            </tr>
-    </table>
+  <h3>Tournament list</h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>End date</th>
+    </tr>
+    <tr *ngFor="let item of tours" [class.selected]="tour === selectedTour" (click)="onSelect(item)">
+      <td>{{item.name}}</td>
+      <td>{{item.startDate | date:'yyyy-MM-dd'}}</td>
+      <td>{{item.endDate | date:'yyyy-MM-dd'}}</td>
+    </tr>
+  </table>
+  <br>
+  <app-tour-detail [tour]="selectedTour"></app-tour-detail>
 </div>
 

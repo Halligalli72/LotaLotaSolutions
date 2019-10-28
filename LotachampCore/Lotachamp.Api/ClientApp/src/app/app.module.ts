@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ParticipantListComponent } from './components/participant-list/participant-list.component';
 import { SportListComponent } from './components/sport-list/sport-list.component';
 import { TourListComponent } from './components/tour-list/tour-list.component';
+import { TourDetailComponent } from './components/tour-detail/tour-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TourListComponent } from './components/tour-list/tour-list.component';
     FetchDataComponent,
     ParticipantListComponent,
     SportListComponent,
-    TourListComponent
+    TourListComponent,
+    TourDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -39,6 +41,6 @@ import { TourListComponent } from './components/tour-list/tour-list.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [ParticipantListComponent, SportListComponent, TourListComponent]
+  exports: [ParticipantListComponent, SportListComponent, TourListComponent, TourDetailComponent]
 })
 export class AppModule { }

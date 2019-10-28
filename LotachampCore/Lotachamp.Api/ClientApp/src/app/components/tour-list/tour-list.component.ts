@@ -17,12 +17,11 @@ export class TourListComponent implements OnInit {
     this.tourSvc.getOngoing()
     .subscribe(
       (data: Tour[]) => {
-       console.log('OK!');
        this.tours = data;
     }, (error: any) => {
       console.error('Error: ', error);
     });
   }
 
-  select(tour: Tour) { this.selectedTour = tour; }
+  onSelect(tour: Tour) { this.selectedTour = tour; }
 }

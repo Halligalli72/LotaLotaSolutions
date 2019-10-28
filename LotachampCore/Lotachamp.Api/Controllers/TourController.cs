@@ -10,11 +10,11 @@ namespace Lotachamp.Api.Controllers
 {
     public class TourController : BaseController
     {
-        private readonly TourService _manager;
+        private readonly TourService _dataSvc;
 
         public TourController(ILotachampContext ctx)
         {
-            _manager = new TourService(ctx);
+            _dataSvc = new TourService(ctx);
         }
 
         [ProducesResponseType(typeof(TourDto), StatusCodes.Status200OK)]
@@ -26,7 +26,7 @@ namespace Lotachamp.Api.Controllers
             if (id <= 0)
                 return BadRequest("Invalid id.");
 
-            var result = _manager.GetById(id);
+            var result = _dataSvc.GetById(id);
 
             if (result != null)
                 return Ok(result.AsDto());
@@ -38,28 +38,28 @@ namespace Lotachamp.Api.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_manager.GetAll().AsDtos());
+            return Ok(_dataSvc.GetAll().AsDtos());
         }
 
         [ProducesResponseType(typeof(IEnumerable<TourDto>), StatusCodes.Status200OK)]
         [HttpGet]
         public IActionResult GetPassed()
         {
-            return Ok(_manager.GetPassed().AsDtos());
+            return Ok(_dataSvc.GetPassed().AsDtos());
         }
 
         [ProducesResponseType(typeof(IEnumerable<TourDto>), StatusCodes.Status200OK)]
         [HttpGet]
         public IActionResult GetOngoing()
         {
-            return Ok(_manager.GetOngoing().AsDtos());
+            return Ok(_dataSvc.GetOngoing().AsDtos());
         }
 
         [ProducesResponseType(typeof(IEnumerable<TourDto>), StatusCodes.Status200OK)]
         [HttpGet]
         public IActionResult GetFuture()
         {
-            return Ok(_manager.GetFuture().AsDtos());
+            return Ok(_dataSvc.GetFuture().AsDtos());
         }
     }
 }

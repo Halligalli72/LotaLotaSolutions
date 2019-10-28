@@ -10,11 +10,11 @@ namespace Lotachamp.Api.Controllers
 {
     public class ParticipantController : BaseController
     {
-        private readonly ParticipantService _manager;
+        private readonly ParticipantService _dataSvc;
 
         public ParticipantController(ILotachampContext ctx)
         {
-            _manager = new ParticipantService(ctx);
+            _dataSvc = new ParticipantService(ctx);
         }
 
         [ProducesResponseType(typeof(ParticipantDto), StatusCodes.Status200OK)]
@@ -26,7 +26,7 @@ namespace Lotachamp.Api.Controllers
             if (id.Equals(Guid.Empty))
                 return BadRequest("Empty guid.");
 
-            var result = _manager.GetById(id);
+            var result = _dataSvc.GetById(id);
 
             if (result != null)
                 return Ok(result.AsDto());
@@ -38,14 +38,14 @@ namespace Lotachamp.Api.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_manager.GetAll().AsDtos());
+            return Ok(_dataSvc.GetAll().AsDtos());
         }
 
         [ProducesResponseType(typeof(IEnumerable<ParticipantDto>), StatusCodes.Status200OK)]
         [HttpGet("{tourId}")]
         public IActionResult GetByTour(int tourId)
         {
-            return Ok(_manager.GetByTour(tourId).AsDtos());
+            return Ok(_dataSvc.GetByTour(tourId).AsDtos());
         }
 
 

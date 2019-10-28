@@ -11,11 +11,11 @@ namespace Lotachamp.Api.Controllers
     public class SportController : BaseController
     {
 
-        private readonly SportService _manager;
+        private readonly SportService _dataSvc;
 
         public SportController(ILotachampContext ctx)
         {
-            _manager = new SportService(ctx);
+            _dataSvc = new SportService(ctx);
         }
 
         [ProducesResponseType(typeof(SportDto), StatusCodes.Status200OK)]
@@ -27,7 +27,7 @@ namespace Lotachamp.Api.Controllers
             if (id <= 0 )
                 return BadRequest("Invalid id.");
 
-            var result = _manager.GetById(id);
+            var result = _dataSvc.GetById(id);
 
             if (result != null)
                 return Ok(result.AsDto());
@@ -39,14 +39,14 @@ namespace Lotachamp.Api.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_manager.GetAll().AsDtos());
+            return Ok(_dataSvc.GetAll().AsDtos());
         }
 
         [ProducesResponseType(typeof(IEnumerable<SportDto>), StatusCodes.Status200OK)]
         [HttpGet("{tourId}")]
         public IActionResult GetByTour(int tourId)
         {
-            return Ok(_manager.GetByTour(tourId).AsDtos());
+            return Ok(_dataSvc.GetByTour(tourId).AsDtos());
         }
 
     }

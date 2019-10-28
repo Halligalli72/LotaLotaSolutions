@@ -10,11 +10,11 @@ namespace Lotachamp.Api.Controllers
 {
     public class ScoreController : BaseController
     {
-        private readonly ScoreService _manager;
+        private readonly ScoreService _dataSvc;
 
         public ScoreController(ILotachampContext ctx) 
         {
-            _manager = new ScoreService(ctx);
+            _dataSvc = new ScoreService(ctx);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Lotachamp.Api.Controllers
             if (id.Equals(Guid.Empty))
                 return BadRequest("Empty guid.");
 
-            var result = _manager.GetById(id);
+            var result = _dataSvc.GetById(id);
             if (result != null)
                 return Ok(result.AsDto());
 
@@ -43,7 +43,7 @@ namespace Lotachamp.Api.Controllers
         [HttpGet]
         public IActionResult GetAll() 
         {
-            return Ok(_manager.GetAll().AsDtos());
+            return Ok(_dataSvc.GetAll().AsDtos());
         }
 
     }

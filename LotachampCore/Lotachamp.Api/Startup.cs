@@ -28,6 +28,8 @@ namespace Lotachamp.Api
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.ConfigureLoggerService();
+
             services.AddSwaggerSupport();
 
             services.ConfigureDbContext(Configuration);
@@ -65,18 +67,20 @@ namespace Lotachamp.Api
                     pattern: "{controller}/{action=Index}/{id?}");
             });
 
-            app.UseSpa(spa =>
-            {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                spa.Options.SourcePath = "ClientApp";
+            /* Nedanståend ekommenterades bort, eftersom frontend utvecklas i VS Code */
+            //app.UseSpa(spa =>
+            //{
+            //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
+            //    // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
-            });
+            //    spa.Options.SourcePath = "ClientApp";
+
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.UseAngularCliServer(npmScript: "start");
+            //    }
+            //});
         }
     }
 }

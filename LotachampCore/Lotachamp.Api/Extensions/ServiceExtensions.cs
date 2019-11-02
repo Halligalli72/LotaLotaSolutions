@@ -1,16 +1,16 @@
 ﻿using Lotachamp.Application.Interfaces;
+using Lotachamp.Infrastructure.Contracts;
+using Lotachamp.Infrastructure.Logging;
 using Lotachamp.Persistance;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using NLog;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace Lotachamp.Api.Extensions
 {
@@ -47,7 +47,7 @@ namespace Lotachamp.Api.Extensions
 
         public static void ConfigureLoggerService(this IServiceCollection services)
         {
-            //services.AddSingleton<ILoggerManager, LoggerManager>();
+            services.AddTransient<ILoggingService, NLogService>();
         }
 
         public static void ConfigureDbContext(this IServiceCollection services, IConfiguration config)

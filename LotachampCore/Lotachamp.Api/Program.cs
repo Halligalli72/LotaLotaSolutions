@@ -11,22 +11,23 @@ namespace Lotachamp.Api
     {
         public static void Main(string[] args)
         {
-            //CreateWebHostBuilder(args).Build().Run();
             var host = CreateWebHostBuilder(args).Build();
+
+            var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
 
             //Initialize the db
             using (var scope = host.Services.CreateScope())
             {
                 try
                 {
+                    logger.Debug("Initializing database...");
                     var context = (AppDbContext)scope.ServiceProvider.GetService<ILotachampContext>();
                     AppDbContextInitializer.Initialize(context);
+                    logger.Debug("Database initialized.");
                 }
                 catch (Exception ex)
                 {
-                    //TODO: Add logging
-                    //var logsvc = scope.ServiceProvider.GetService<ILoggingService>();
-                    //logsvc.LogError(ex, "An error occurred while migrating or initializing the database.");
+                    logger.Error(ex, "DATABASE INITIALIZE FAILED!");
                 }
             }
 

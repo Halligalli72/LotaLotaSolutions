@@ -68,5 +68,24 @@ namespace Lotachamp.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Returns all scores for a specific tour
+        /// </summary>
+        /// <param name="tourId"></param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(IEnumerable<ScoreDto>), StatusCodes.Status200OK)]
+        [HttpGet("{tourId}")]
+        public IActionResult GetByTour(int tourId)
+        {
+            try
+            {
+                return Ok(_dataSvc.GetByTour(tourId).AsDtos());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Something went wrong in class:{MethodBase.GetCurrentMethod().DeclaringType.Name}, method:{MethodBase.GetCurrentMethod().Name}");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
     }
 }

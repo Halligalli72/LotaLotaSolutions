@@ -1,7 +1,3 @@
-import { Participant } from "./participant.model";
-import { SportEvent } from "./sport-event.model";
-import { Tour } from "./tour.model";
-
 export class Score {
   constructor(
     public scoreId?: string,

@@ -11,6 +11,7 @@ import { ParticipantsComponent } from './components/participants/participants.co
 import { SportsComponent } from './components/sports/sports.component';
 import { ToursComponent } from './components/tours/tours.component';
 import { TourDetailComponent } from './components/tour-detail/tour-detail.component';
+import { ScoresComponent } from './components/scores/scores.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TourDetailComponent } from './components/tour-detail/tour-detail.compon
     ParticipantsComponent,
     SportsComponent,
     ToursComponent,
-    TourDetailComponent
+    TourDetailComponent,
+    ScoresComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,10 +33,11 @@ import { TourDetailComponent } from './components/tour-detail/tour-detail.compon
       { path: 'participants', component: ParticipantsComponent },
       { path: 'sports', component: SportsComponent },
       { path: 'tours', component: ToursComponent },
+      { path: 'scores', component: ScoresComponent},
     ])
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [ParticipantsComponent, SportsComponent, ToursComponent, TourDetailComponent]
+  exports: [ParticipantsComponent, SportsComponent, ToursComponent, TourDetailComponent, ScoresComponent]
 })
 export class AppModule { }

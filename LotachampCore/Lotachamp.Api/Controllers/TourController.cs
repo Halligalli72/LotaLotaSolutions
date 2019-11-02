@@ -71,16 +71,16 @@ namespace Lotachamp.Api.Controllers
         }
 
         /// <summary>
-        /// Returns all old tours 
+        /// Returns all ended tours 
         /// </summary>
         /// <returns></returns>
         [ProducesResponseType(typeof(IEnumerable<TourDto>), StatusCodes.Status200OK)]
         [HttpGet]
-        public IActionResult GetPassed()
+        public IActionResult GetEnded()
         {
             try
             {
-                return Ok(_dataSvc.GetPassed().AsDtos());
+                return Ok(_dataSvc.GetEnded().AsDtos());
             }
             catch (Exception ex)
             {

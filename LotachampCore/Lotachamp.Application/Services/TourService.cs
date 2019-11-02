@@ -19,7 +19,7 @@ namespace Lotachamp.Application.Services
 
         public IEnumerable<Tour> GetAll(bool onlyPublic = false)
         {
-            return GetPassed(onlyPublic)
+            return GetEnded(onlyPublic)
                 .Concat(GetOngoing(onlyPublic)
                 .Concat(GetFuture(onlyPublic)));
         }
@@ -37,7 +37,7 @@ namespace Lotachamp.Application.Services
                 .AsEnumerable();
         }
 
-        public IEnumerable<Tour> GetPassed(bool onlyPublic = false)
+        public IEnumerable<Tour> GetEnded(bool onlyPublic = false)
         {
             return _ctx.Tours
                 .Where(o => o.EndDate < DateTime.Now && o.IsPublic.Equals(onlyPublic))

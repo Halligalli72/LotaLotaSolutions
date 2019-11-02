@@ -1,10 +1,10 @@
-﻿using Lotachamp.Infrastructure.Contracts;
+﻿using Lotachamp.Application.Interfaces;
 using NLog;
 using System;
 
 namespace Lotachamp.Infrastructure.Logging
 {
-    public class NLogService : ILoggingService
+    public class NLogService : ILoggerService
     {
         private static ILogger logger = LogManager.GetCurrentClassLogger();
 

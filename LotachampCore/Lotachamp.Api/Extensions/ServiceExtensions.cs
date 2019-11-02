@@ -1,5 +1,4 @@
 ﻿using Lotachamp.Application.Interfaces;
-using Lotachamp.Infrastructure.Contracts;
 using Lotachamp.Infrastructure.Logging;
 using Lotachamp.Persistance;
 using Microsoft.AspNetCore.Builder;
@@ -47,7 +46,7 @@ namespace Lotachamp.Api.Extensions
 
         public static void ConfigureLoggerService(this IServiceCollection services)
         {
-            services.AddTransient<ILoggingService, NLogService>();
+            services.AddTransient<ILoggerService, NLogService>();
         }
 
         public static void ConfigureDbContext(this IServiceCollection services, IConfiguration config)

@@ -54,6 +54,20 @@ namespace Lotachamp.Api.Extensions
             var connectionString = config["ConnectionStrings:LotachampDb"];
             services.AddDbContext<ILotachampContext, AppDbContext>(o => o.UseSqlServer(connectionString));
         }
+        public static void ConfigureCors(this IServiceCollection services, string policy)
+        {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(policy,
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost", "https://localhost")
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
+        }
 
     }
 }

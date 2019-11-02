@@ -33,12 +33,15 @@ namespace Lotachamp.Api
             services.AddSwaggerSupport();
 
             services.ConfigureDbContext(Configuration);
+
+            services.ConfigureCors(Constants.CorsPolicy);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.ConfigureSwagger();
+            app.UseCors(Constants.CorsPolicy);
 
             if (env.IsDevelopment())
             {

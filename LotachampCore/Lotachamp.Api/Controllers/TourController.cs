@@ -108,6 +108,26 @@ namespace Lotachamp.Api.Controllers
         }
 
         /// <summary>
+        /// Get ongoing toure for a specific user
+        /// </summary>
+        /// <param name="appUserId">Application user id</param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(IEnumerable<TourDto>), StatusCodes.Status200OK)]
+        [HttpGet("{appUserId}")]
+        public IActionResult GetOngoing(int appUserId)
+        {
+            try
+            {
+                return Ok(_dataSvc.GetOngoingForUser(appUserId).AsDtos());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Something went wrong in class:{MethodBase.GetCurrentMethod().DeclaringType.Name}, method:{MethodBase.GetCurrentMethod().Name}");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Returns all tours that are not started yet
         /// </summary>
         /// <returns></returns>

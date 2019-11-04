@@ -37,6 +37,14 @@ namespace Lotachamp.Application.Services
                 .AsEnumerable();
         }
 
+        public IEnumerable<Tour> GetOngoingForUser(int appUserId)
+        {
+            //TODO: Only return tours the user is member of, is official in or admin in
+            return _ctx.Tours
+                .Where(o => o.StartDate <= DateTime.Now && o.EndDate >= DateTime.Now)
+                .AsEnumerable();
+        }
+
         public IEnumerable<Tour> GetEnded(bool onlyPublic = false)
         {
             return _ctx.Tours

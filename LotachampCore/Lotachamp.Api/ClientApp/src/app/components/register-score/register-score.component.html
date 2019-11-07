@@ -9,13 +9,17 @@
             </div>
             <div class="form-group">
                 <label for="participantId">Competitor</label>
-                <input type="text" class="form-control" id="participantId" required 
-                    [(ngModel)]="model.participantId" name="participantId" #name="ngModel">
+                <select class="form-control" id="participantId" required
+                    [(ngModel)]="model.participantId" name="participantId" #participantId="ngModel">
+                    <option *ngFor="let comp of competitors" [value]="comp.participantId">{{comp.name}}</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="sportId">Sport</label>
-                <input type="text" class="form-control" id="sportId" required 
-                    [(ngModel)]="model.sportId" name="sportId" #name="ngModel">
+                <select class="form-control" id="sportId" required
+                    [(ngModel)]="model.sportId" name="sportId" #participantId="ngModel">
+                    <option *ngFor="let sport of sports" [value]="sport.sportId">{{sport.name}}</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="scoreDate">Date</label>

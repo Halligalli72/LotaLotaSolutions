@@ -13,7 +13,7 @@ import { SportService } from 'src/app/_services/sport.service';
 })
 export class RegisterScoreComponent implements OnInit {
   scoreForm: FormGroup;
-  model: Score = new Score('', 0, '', '', 0, '', new Date(), 0, '', '', '', 0, 0);
+  model: Score = new Score('', 1, '', '', 0, '', new Date(), 0, '', '', '', 0, 0);
   competitors: Participant[];
   sports: Sport[];
   submitted = false;

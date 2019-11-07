@@ -12,12 +12,12 @@ namespace Lotachamp.Api.Controllers
     public class ParticipantController : BaseController
     {
         private readonly ILoggerService _logger;
-        private readonly ParticipantService _dataSvc;
+        private readonly IParticipantService _dataSvc;
 
-        public ParticipantController(ILoggerService logger, ILotachampContext ctx)
+        public ParticipantController(ILoggerService logger, IParticipantService participantSvc)
         {
             _logger = logger;
-            _dataSvc = new ParticipantService(ctx);
+            _dataSvc = participantSvc;
         }
 
         /// <summary>

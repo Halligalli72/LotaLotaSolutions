@@ -15,6 +15,9 @@ namespace Lotachamp.Api.DataTransfer
         public bool IsCompeting { get; set; } = false;
         public bool IsTourAdmin { get; set; } = false;
         public bool IsTourOfficial { get; set; } = false;
+        public int TotalPoints { get; set; }
+        public int TotalRank { get; set; }
+
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; } = string.Empty;
         public DateTime? Updated { get; set; }

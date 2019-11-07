@@ -35,6 +35,8 @@ namespace Lotachamp.Api
             services.ConfigureDbContext(Configuration);
 
             services.ConfigureCors(Constants.CorsPolicy);
+
+            services.ConfigureApplicationDI();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

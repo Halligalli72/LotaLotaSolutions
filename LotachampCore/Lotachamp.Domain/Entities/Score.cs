@@ -20,7 +20,7 @@ namespace Lotachamp.Domain.Entities
         public DateTime ScoreDate { get; set; }
         public string Notes { get; set; }
 
-        public virtual ICollection<Picture> Pictures { get; private set; }
+        public virtual ICollection<Picture> Pictures { get; set; }
         public virtual Sport Sport { get; set; }
         public virtual Participant Participant { get; set; }
     }

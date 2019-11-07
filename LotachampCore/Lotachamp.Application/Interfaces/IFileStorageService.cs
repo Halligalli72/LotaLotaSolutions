@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lotachamp.Application.Interfaces
 {
-    public interface IImageStorageService
+    public interface IFileStorageService
     {
     }
 }

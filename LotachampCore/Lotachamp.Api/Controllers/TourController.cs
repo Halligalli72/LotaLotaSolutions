@@ -12,12 +12,12 @@ namespace Lotachamp.Api.Controllers
     public class TourController : BaseController
     {
         private readonly ILoggerService _logger;
-        private readonly TourService _dataSvc;
+        private readonly ITourService _dataSvc;
 
-        public TourController(ILoggerService logger, ILotachampContext ctx)
+        public TourController(ILoggerService logger, ITourService tourSvc)
         {
             _logger = logger;
-            _dataSvc = new TourService(ctx);
+            _dataSvc = tourSvc;
         }
 
         /// <summary>

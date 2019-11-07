@@ -8,7 +8,14 @@ using System.Text;
 
 namespace Lotachamp.Application.Services
 {
-    public class SportService
+    public interface ISportService
+    {
+        IEnumerable<Sport> GetAll();
+        Sport GetById(int sportId);
+        IEnumerable<Sport> GetByTour(int tourId);
+    }
+
+    public class SportService : ISportService
     {
         private readonly ILotachampContext _ctx;
 

@@ -12,12 +12,12 @@ namespace Lotachamp.Api.Controllers
     public class SportController : BaseController
     {
         private readonly ILoggerService _logger;
-        private readonly SportService _dataSvc;
+        private readonly ISportService _dataSvc;
 
-        public SportController(ILoggerService logger, ILotachampContext ctx)
+        public SportController(ILoggerService logger, ISportService sportSvc)
         {
             _logger = logger;
-            _dataSvc = new SportService(ctx);
+            _dataSvc = sportSvc;
         }
 
         /// <summary>

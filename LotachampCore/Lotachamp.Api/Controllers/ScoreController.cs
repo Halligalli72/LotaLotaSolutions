@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Lotachamp.Api.DataTransfer;
 using Lotachamp.Application.Interfaces;
+using Lotachamp.Application.Ranking;
 using Lotachamp.Application.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,12 +13,12 @@ namespace Lotachamp.Api.Controllers
     public class ScoreController : BaseController
     {
         private readonly ILoggerService _logger;
-        private readonly ScoreService _dataSvc;
+        private readonly IScoreService _dataSvc;
 
-        public ScoreController(ILoggerService logger, ILotachampContext ctx) 
+        public ScoreController(ILoggerService logger, IScoreService scoreSvc) 
         {
             _logger = logger;
-            _dataSvc = new ScoreService(ctx);
+            _dataSvc = scoreSvc;
         }
 
         /// <summary>

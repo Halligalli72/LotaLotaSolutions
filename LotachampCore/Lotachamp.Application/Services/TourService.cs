@@ -8,7 +8,17 @@ using System.Text;
 
 namespace Lotachamp.Application.Services
 {
-    public class TourService
+    public interface ITourService
+    {
+        IEnumerable<Tour> GetAll(bool onlyPublic = false);
+        Tour GetById(int tourId, bool onlyPublic = false);
+        IEnumerable<Tour> GetEnded(bool onlyPublic = false);
+        IEnumerable<Tour> GetFuture(bool onlyPublic = false);
+        IEnumerable<Tour> GetOngoing(bool onlyPublic = false);
+        IEnumerable<Tour> GetOngoingForUser(int appUserId);
+    }
+
+    public class TourService : ITourService
     {
         private readonly ILotachampContext _ctx;
 

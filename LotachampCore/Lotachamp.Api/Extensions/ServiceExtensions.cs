@@ -1,4 +1,6 @@
 ﻿using Lotachamp.Application.Interfaces;
+using Lotachamp.Application.Ranking;
+using Lotachamp.Application.Services;
 using Lotachamp.Infrastructure.Logging;
 using Lotachamp.Persistance;
 using Microsoft.AspNetCore.Builder;
@@ -54,6 +56,7 @@ namespace Lotachamp.Api.Extensions
             var connectionString = config["ConnectionStrings:LotachampDb"];
             services.AddDbContext<ILotachampContext, AppDbContext>(o => o.UseSqlServer(connectionString));
         }
+
         public static void ConfigureCors(this IServiceCollection services, string policy)
         {
             services.AddCors(options =>
@@ -68,6 +71,16 @@ namespace Lotachamp.Api.Extensions
                 });
             });
         }
+
+        public static void ConfigureApplicationDI(this IServiceCollection services)
+        {
+            services.AddScoped<IRankEngine, RankEngine>();
+            services.AddScoped<IScoreService, ScoreService>();
+            services.AddScoped<IParticipantService, ParticipantService>();
+            services.AddScoped<ISportService, SportService>();
+            services.AddScoped<ITourService, TourService>();
+        }
+
 
     }
 }

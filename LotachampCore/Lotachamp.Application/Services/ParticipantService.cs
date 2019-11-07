@@ -7,7 +7,14 @@ using System.Text;
 
 namespace Lotachamp.Application.Services
 {
-    public class ParticipantService
+    public interface IParticipantService
+    {
+        IEnumerable<Participant> GetAll();
+        Participant GetById(Guid scoreId);
+        IEnumerable<Participant> GetByTour(int tourId);
+    }
+
+    public class ParticipantService : IParticipantService
     {
         private readonly ILotachampContext _ctx;
 
@@ -21,9 +28,9 @@ namespace Lotachamp.Application.Services
             return _ctx.Participants.AsEnumerable();
         }
 
-        public Participant GetById(Guid scoreId)
+        public Participant GetById(Guid participantId)
         {
-            return _ctx.Participants.Where(o => o.ParticipantId.Equals(scoreId)).FirstOrDefault();
+            return _ctx.Participants.Where(o => o.ParticipantId.Equals(participantId)).FirstOrDefault();
         }
         public IEnumerable<Participant> GetByTour(int tourId)
         {

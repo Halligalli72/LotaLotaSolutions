@@ -1,4 +1,4 @@
-﻿using Lotachamp.Domain.Entities;
+﻿using Lotachamp.Application.BusinessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +32,12 @@ namespace Lotachamp.Api.DataTransfer
     
     public static class ScoreDtoBuilder
     {
-        public static ScoreDto AsDto(this Score obj) 
+        public static ScoreDto AsDto(this ScoreBO obj) 
         {
-            return new List<Score> { obj }.AsDtos().Single();
+            return new List<ScoreBO> { obj }.AsDtos().Single();
         }
 
-        public static IEnumerable<ScoreDto> AsDtos(this IEnumerable<Score> entities) 
+        public static IEnumerable<ScoreDto> AsDtos(this IEnumerable<ScoreBO> entities) 
         {
             return from e in entities
                    select new ScoreDto 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -12,6 +12,7 @@ import { SportsComponent } from './components/sports/sports.component';
 import { ToursComponent } from './components/tours/tours.component';
 import { TourDetailComponent } from './components/tour-detail/tour-detail.component';
 import { ScoresComponent } from './components/scores/scores.component';
+import { RegisterScoreComponent } from './components/register-score/register-score.component';
 
 @NgModule({
   declarations: [
@@ -22,22 +23,25 @@ import { ScoresComponent } from './components/scores/scores.component';
     SportsComponent,
     ToursComponent,
     TourDetailComponent,
-    ScoresComponent
+    ScoresComponent,
+    RegisterScoreComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'participants', component: ParticipantsComponent },
       { path: 'sports', component: SportsComponent },
       { path: 'tours', component: ToursComponent },
       { path: 'scores', component: ScoresComponent},
+      { path: 'register', component: RegisterScoreComponent},
     ])
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [ParticipantsComponent, SportsComponent, ToursComponent, TourDetailComponent, ScoresComponent]
+  exports: [ParticipantsComponent, SportsComponent, ToursComponent, TourDetailComponent, ScoresComponent ]
 })
 export class AppModule { }

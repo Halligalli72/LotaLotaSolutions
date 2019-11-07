@@ -1,0 +1,39 @@
+<div class="container">
+    <div [hidden]="submitted">
+        <h3>Register score</h3>
+        <form (ngSubmit)="onSubmit()" #scoreForm="ngForm">
+            <div class="form-group">
+                <label for="tourId">Tour</label>
+                <input type="text" class="form-control" id="tourId" required 
+                    [(ngModel)]="model.tourId" name="tourId" #name="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="participantId">Competitor</label>
+                <input type="text" class="form-control" id="participantId" required 
+                    [(ngModel)]="model.participantId" name="participantId" #name="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="sportId">Sport</label>
+                <input type="text" class="form-control" id="sportId" required 
+                    [(ngModel)]="model.sportId" name="sportId" #name="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="scoreDate">Date</label>
+                <input type="date" class="form-control" id="scoreDate" required 
+                    [(ngModel)]="model.scoreDate" name="scoreDate" #name="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="resultValue">Result</label>
+                <input type="number" class="form-control" id="resultValue" required 
+                    [(ngModel)]="model.resultValue" name="resultValue" #name="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="resultValue">Notes</label>
+                <input type="text" class="form-control" id="notes" 
+                    [(ngModel)]="model.notes" name="notes" #name="ngModel">
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!scoreForm.form.valid">Submit</button>
+        </form>
+    </div>
+</div>
+

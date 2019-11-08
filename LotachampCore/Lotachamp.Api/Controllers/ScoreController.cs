@@ -88,5 +88,33 @@ namespace Lotachamp.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [HttpPost]
+        public IActionResult Save([FromBody] CreateScoreDto dto) 
+        {
+            try
+            {
+                if (dto == null)
+                    return BadRequest("DTO is null.");
+
+                //var result = _dataSvc.CreateScore(dto);
+                //if (result.Success != true) 
+                //{
+                //    ModelState.AddModelError()...
+                //}
+
+                return NoContent();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Something went wrong in class:{MethodBase.GetCurrentMethod().DeclaringType.Name}, method:{MethodBase.GetCurrentMethod().Name}");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
     }
 }

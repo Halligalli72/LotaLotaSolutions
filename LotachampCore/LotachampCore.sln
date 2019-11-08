@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Api", "Lotachamp.Api\Lotachamp.Api.csproj", "{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Domain", "src\Lotachamp.Domain\Lotachamp.Domain.csproj", "{88EA639A-8A21-44F0-B7AE-754D00A7B5D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Application", "Lotachamp.Application\Lotachamp.Application.csproj", "{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Infrastructure", "src\Lotachamp.Infrastructure\Lotachamp.Infrastructure.csproj", "{2E255637-6877-44C3-9679-BA2BECCB8BEF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Persistance", "Lotachamp.Persistance\Lotachamp.Persistance.csproj", "{0D014D0D-F99D-469A-92A6-E1A05D22BCA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Persistance", "src\Lotachamp.Persistance\Lotachamp.Persistance.csproj", "{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Domain", "Lotachamp.Domain\Lotachamp.Domain.csproj", "{EEBE68FB-C48C-4AF8-B247-42CEF59BBEEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Application", "src\Lotachamp.Application\Lotachamp.Application.csproj", "{1981CF39-E0D9-48A2-941B-717C43F4039D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotachamp.Infrastructure", "Lotachamp.Infrastructure\Lotachamp.Infrastructure.csproj", "{2F6D2C6A-3DF3-42A0-B1AB-680B72634D0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Api", "src\Lotachamp.Api\Lotachamp.Api.csproj", "{1BD3DB78-1A6F-49F6-B4D3-F922F6CA7972}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unittests", "unittests", "{A5AA2AF1-5886-4601-A3FD-F75DB5E1EA6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotachamp.Application.Test", "test\Lotachamp.Application.Test\Lotachamp.Application.Test.csproj", "{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,29 +23,36 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1FE3C0D0-FD3A-42CC-A881-31D8158132E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FC9C0E1-CB77-4DCD-9AEA-031B611AF890}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D014D0D-F99D-469A-92A6-E1A05D22BCA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D014D0D-F99D-469A-92A6-E1A05D22BCA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D014D0D-F99D-469A-92A6-E1A05D22BCA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D014D0D-F99D-469A-92A6-E1A05D22BCA3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EEBE68FB-C48C-4AF8-B247-42CEF59BBEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEBE68FB-C48C-4AF8-B247-42CEF59BBEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEBE68FB-C48C-4AF8-B247-42CEF59BBEEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEBE68FB-C48C-4AF8-B247-42CEF59BBEEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F6D2C6A-3DF3-42A0-B1AB-680B72634D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F6D2C6A-3DF3-42A0-B1AB-680B72634D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F6D2C6A-3DF3-42A0-B1AB-680B72634D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F6D2C6A-3DF3-42A0-B1AB-680B72634D0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88EA639A-8A21-44F0-B7AE-754D00A7B5D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88EA639A-8A21-44F0-B7AE-754D00A7B5D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88EA639A-8A21-44F0-B7AE-754D00A7B5D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88EA639A-8A21-44F0-B7AE-754D00A7B5D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E255637-6877-44C3-9679-BA2BECCB8BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E255637-6877-44C3-9679-BA2BECCB8BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E255637-6877-44C3-9679-BA2BECCB8BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E255637-6877-44C3-9679-BA2BECCB8BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1981CF39-E0D9-48A2-941B-717C43F4039D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1981CF39-E0D9-48A2-941B-717C43F4039D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1981CF39-E0D9-48A2-941B-717C43F4039D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1981CF39-E0D9-48A2-941B-717C43F4039D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD3DB78-1A6F-49F6-B4D3-F922F6CA7972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD3DB78-1A6F-49F6-B4D3-F922F6CA7972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD3DB78-1A6F-49F6-B4D3-F922F6CA7972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD3DB78-1A6F-49F6-B4D3-F922F6CA7972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477} = {A5AA2AF1-5886-4601-A3FD-F75DB5E1EA6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FF02749-4A7E-4A6E-BBBF-49465BE00F3E}

@@ -1,8 +1,10 @@
-﻿using Lotachamp.Application.Interfaces;
+﻿using Lotachamp.Application.Infrastructure;
 using Lotachamp.Application.Ranking;
 using Lotachamp.Application.Services;
+using Lotachamp.Infrastructure.FileStorage;
 using Lotachamp.Infrastructure.Logging;
-using Lotachamp.Persistance;
+using Lotachamp.Infrastructure.Notifications;
+using Lotachamp.Infrastructure.Persistance;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -51,7 +53,7 @@ namespace Lotachamp.Api.Extensions
             services.AddTransient<ILoggerService, NLogService>();
         }
 
-        public static void ConfigureDbContext(this IServiceCollection services, IConfiguration config)
+        public static void ConfigureDataPersistance(this IServiceCollection services, IConfiguration config)
         {
             var connectionString = config["ConnectionStrings:LotachampDb"];
             services.AddDbContext<ILotachampContext, AppDbContext>(o => o.UseSqlServer(connectionString));
@@ -81,6 +83,14 @@ namespace Lotachamp.Api.Extensions
             services.AddScoped<ITourService, TourService>();
         }
 
+        public static void ConfigureNotificationService(this IServiceCollection services)
+        {
+            services.AddTransient<INotificationService, NotificationService>();
+        }
 
+        public static void ConfigureFileStorage(this IServiceCollection services)
+        {
+            services.AddTransient<IFileStorageService, FileStorageService>();
+        }
     }
 }

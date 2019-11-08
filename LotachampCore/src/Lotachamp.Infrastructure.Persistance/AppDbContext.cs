@@ -1,10 +1,10 @@
-﻿using Lotachamp.Application.Interfaces;
+﻿using Lotachamp.Application.Infrastructure;
 using Lotachamp.Domain.Entities;
-using Lotachamp.Persistance.Configurations;
+using Lotachamp.Infrastructure.Persistance.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace Lotachamp.Persistance
+namespace Lotachamp.Infrastructure.Persistance
 {
     public class AppDbContext : DbContext , ILotachampContext
     {

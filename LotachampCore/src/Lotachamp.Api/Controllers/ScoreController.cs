@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Lotachamp.Api.DataTransfer;
-using Lotachamp.Application.Interfaces;
+using Lotachamp.Application.Infrastructure;
 using Lotachamp.Application.Ranking;
 using Lotachamp.Application.Services;
 using Microsoft.AspNetCore.Http;

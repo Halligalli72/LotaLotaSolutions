@@ -1,4 +1,4 @@
-﻿using Lotachamp.Application.Interfaces;
+﻿using Lotachamp.Application.Infrastructure;
 using NLog;
 using System;
 

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Lotachamp.Persistance;
-using Lotachamp.Persistence.Infrastructure;
+using Lotachamp.Infrastructure.Persistance;
+using Lotachamp.Infrastructure.Persistance.Infrastructure;
 
-namespace Lotachamp.Persistence
+namespace Lotachamp.Infrastructure.Persistance
 {
     public class AppDbContextFactory : DesignTimeDbContextFactoryBase<AppDbContext>
     {

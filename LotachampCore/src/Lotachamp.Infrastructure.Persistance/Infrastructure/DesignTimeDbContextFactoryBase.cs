@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 
-namespace Lotachamp.Persistence.Infrastructure
+namespace Lotachamp.Infrastructure.Persistance.Infrastructure
 {
     public abstract class DesignTimeDbContextFactoryBase<TContext> :
         IDesignTimeDbContextFactory<TContext> where TContext : DbContext

@@ -1,4 +1,4 @@
-﻿using Lotachamp.Application.Interfaces;
+﻿using Lotachamp.Application.Infrastructure;
 using Lotachamp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;

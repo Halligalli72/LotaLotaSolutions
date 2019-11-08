@@ -1,5 +1,6 @@
 using System;
-using Lotachamp.Application.Interfaces;
+using Lotachamp.Application.Infrastructure;
+using Lotachamp.Infrastructure.Persistance;
 using Lotachamp.Persistance;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;

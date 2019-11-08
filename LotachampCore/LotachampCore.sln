@@ -5,17 +5,21 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Domain", "src\Lotachamp.Domain\Lotachamp.Domain.csproj", "{88EA639A-8A21-44F0-B7AE-754D00A7B5D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Infrastructure", "src\Lotachamp.Infrastructure\Lotachamp.Infrastructure.csproj", "{2E255637-6877-44C3-9679-BA2BECCB8BEF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Persistance", "src\Lotachamp.Persistance\Lotachamp.Persistance.csproj", "{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Application", "src\Lotachamp.Application\Lotachamp.Application.csproj", "{1981CF39-E0D9-48A2-941B-717C43F4039D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Api", "src\Lotachamp.Api\Lotachamp.Api.csproj", "{1BD3DB78-1A6F-49F6-B4D3-F922F6CA7972}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unittests", "unittests", "{A5AA2AF1-5886-4601-A3FD-F75DB5E1EA6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotachamp.Application.Test", "test\Lotachamp.Application.Test\Lotachamp.Application.Test.csproj", "{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Application.Test", "test\Lotachamp.Application.Test\Lotachamp.Application.Test.csproj", "{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Infrastructure.Logging", "src\Lotachamp.Infrastructure.Logging\Lotachamp.Infrastructure.Logging.csproj", "{9ECD6975-FBE7-4013-A0F4-110CCA690029}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lotachamp.Infrastructure.Persistance", "src\Lotachamp.Infrastructure.Persistance\Lotachamp.Infrastructure.Persistance.csproj", "{C2D841DF-0B09-4A51-8684-53F1BA89F4F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotachamp.Infrastructure.FileStorage", "src\Lotachamp.Infrastructure.FileStorage\Lotachamp.Infrastructure.FileStorage.csproj", "{758987D6-AABB-46DF-BC9B-A5E4790C45B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lotachamp.Infrastructure.Notifications", "src\Lotachamp.Infrastructure.Notifications\Lotachamp.Infrastructure.Notifications.csproj", "{11D14379-F327-4F0F-94FE-CC6308E5F9AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +31,6 @@ Global
 		{88EA639A-8A21-44F0-B7AE-754D00A7B5D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88EA639A-8A21-44F0-B7AE-754D00A7B5D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88EA639A-8A21-44F0-B7AE-754D00A7B5D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E255637-6877-44C3-9679-BA2BECCB8BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E255637-6877-44C3-9679-BA2BECCB8BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E255637-6877-44C3-9679-BA2BECCB8BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E255637-6877-44C3-9679-BA2BECCB8BEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51AC4A9C-0D09-4128-B1BD-74A8E497FBE5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1981CF39-E0D9-48A2-941B-717C43F4039D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1981CF39-E0D9-48A2-941B-717C43F4039D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1981CF39-E0D9-48A2-941B-717C43F4039D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +43,22 @@ Global
 		{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3A398FA-7E9C-4A8E-A4C4-F12EC9293477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ECD6975-FBE7-4013-A0F4-110CCA690029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECD6975-FBE7-4013-A0F4-110CCA690029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECD6975-FBE7-4013-A0F4-110CCA690029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ECD6975-FBE7-4013-A0F4-110CCA690029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D841DF-0B09-4A51-8684-53F1BA89F4F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D841DF-0B09-4A51-8684-53F1BA89F4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D841DF-0B09-4A51-8684-53F1BA89F4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D841DF-0B09-4A51-8684-53F1BA89F4F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{758987D6-AABB-46DF-BC9B-A5E4790C45B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{758987D6-AABB-46DF-BC9B-A5E4790C45B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{758987D6-AABB-46DF-BC9B-A5E4790C45B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{758987D6-AABB-46DF-BC9B-A5E4790C45B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D14379-F327-4F0F-94FE-CC6308E5F9AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D14379-F327-4F0F-94FE-CC6308E5F9AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D14379-F327-4F0F-94FE-CC6308E5F9AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D14379-F327-4F0F-94FE-CC6308E5F9AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

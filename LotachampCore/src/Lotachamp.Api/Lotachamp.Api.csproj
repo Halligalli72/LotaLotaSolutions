@@ -47,8 +47,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Lotachamp.Application\Lotachamp.Application.csproj" />
-    <ProjectReference Include="..\Lotachamp.Infrastructure\Lotachamp.Infrastructure.csproj" />
-    <ProjectReference Include="..\Lotachamp.Persistance\Lotachamp.Persistance.csproj" />
+    <ProjectReference Include="..\Lotachamp.Infrastructure.FileStorage\Lotachamp.Infrastructure.FileStorage.csproj" />
+    <ProjectReference Include="..\Lotachamp.Infrastructure.Logging\Lotachamp.Infrastructure.Logging.csproj" />
+    <ProjectReference Include="..\Lotachamp.Infrastructure.Notifications\Lotachamp.Infrastructure.Notifications.csproj" />
+    <ProjectReference Include="..\Lotachamp.Infrastructure.Persistance\Lotachamp.Infrastructure.Persistance.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

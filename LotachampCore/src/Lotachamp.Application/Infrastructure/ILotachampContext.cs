@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Lotachamp.Application.Interfaces
+namespace Lotachamp.Application.Infrastructure
 {
     public interface ILotachampContext
     {

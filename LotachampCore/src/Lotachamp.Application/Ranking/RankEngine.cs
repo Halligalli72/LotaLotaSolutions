@@ -1,5 +1,5 @@
 ﻿using Lotachamp.Application.BusinessObjects;
-using Lotachamp.Application.Interfaces;
+using Lotachamp.Application.Infrastructure;
 using Lotachamp.Domain.Entities;
 using System;
 using System.Collections.Generic;

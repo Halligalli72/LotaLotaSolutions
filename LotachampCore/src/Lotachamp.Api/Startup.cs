@@ -28,11 +28,13 @@ namespace Lotachamp.Api
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            // Configure infrastructure
             services.ConfigureLoggerService();
+            services.ConfigureFileStorage();
+            services.ConfigureNotificationService();
+            services.ConfigureDataPersistance(Configuration);
 
             services.AddSwaggerSupport();
-
-            services.ConfigureDbContext(Configuration);
 
             services.ConfigureCors(Constants.CorsPolicy);
 

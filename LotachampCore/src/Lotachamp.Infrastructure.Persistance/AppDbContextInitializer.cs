@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Lotachamp.Persistance
+namespace Lotachamp.Infrastructure.Persistance
 {
     public class AppDbContextInitializer
     {

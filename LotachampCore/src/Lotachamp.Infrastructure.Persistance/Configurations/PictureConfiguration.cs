@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Lotachamp.Persistance.Configurations
+namespace Lotachamp.Infrastructure.Persistance.Configurations
 {
     public class PictureConfiguration : IEntityTypeConfiguration<Picture>
     {

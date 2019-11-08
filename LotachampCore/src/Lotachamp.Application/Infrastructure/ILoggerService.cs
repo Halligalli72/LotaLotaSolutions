@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lotachamp.Application.Interfaces
+namespace Lotachamp.Application.Infrastructure
 {
     public interface ILoggerService
     {

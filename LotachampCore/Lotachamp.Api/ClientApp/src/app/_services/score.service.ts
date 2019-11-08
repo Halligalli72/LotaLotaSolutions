@@ -16,4 +16,9 @@ export class ScoreService {
     return this.http.get(url);
   }
 
+  saveScore(data: any) {
+    let url = environment.apiRootUrl + '/api/Score/Save';
+    return this.http.post(url, data);
+  }
+
 }

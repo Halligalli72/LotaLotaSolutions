@@ -5,6 +5,7 @@ import { Participant } from 'src/app/_models/participant.model';
 import { Sport } from 'src/app/_models/sport.model';
 import { ParticipantService } from 'src/app/_services/participant.service';
 import { SportService } from 'src/app/_services/sport.service';
+import { ScoreService } from 'src/app/_services/score.service';
 
 @Component({
   selector: 'app-register-score',
@@ -18,7 +19,7 @@ export class RegisterScoreComponent implements OnInit {
   sports: Sport[];
   submitted = false;
 
-  constructor(private participantSvc: ParticipantService, private sportSvc: SportService) { }
+  constructor(private participantSvc: ParticipantService, private sportSvc: SportService, private scoreSvc: ScoreService) { }
 
   ngOnInit() {
     let tourId = 1;
@@ -30,9 +31,24 @@ export class RegisterScoreComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(formData: any) {
     alert('hej apa!');
     this.submitted = true;
+    this.saveScore(formData);
   }
 
+  saveScore(data: any) {
+    this.scoreSvc.saveScore(data)
+      .subscribe(
+        (resp: any) => {
+          // Allt OK
+          // console.log('JSON response received: ' + JSON.stringify(resp));
+          console.log('Score saved.');
+        },
+        (res: any) => {
+          // Error - något gick fel
+          console.error('Ospecificerat fel: ' + res.message);
+        }
+      );
+  }
 }

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Score } from 'src/app/_models/score.model';
+import { FormGroup } from '@angular/forms';
 import { Participant } from 'src/app/_models/participant.model';
 import { Sport } from 'src/app/_models/sport.model';
 import { ParticipantService } from 'src/app/_services/participant.service';
 import { SportService } from 'src/app/_services/sport.service';
 import { ScoreService } from 'src/app/_services/score.service';
+import { CreateScoreDto } from 'src/app/_models/create-score-dto.model';
+import { TourService } from 'src/app/_services/tour.service';
+import { Tour } from 'src/app/_models/tour.model';
 
 @Component({
   selector: 'app-register-score',
@@ -14,31 +16,38 @@ import { ScoreService } from 'src/app/_services/score.service';
 })
 export class RegisterScoreComponent implements OnInit {
   scoreForm: FormGroup;
-  model: Score = new Score('', 1, '', '', 0, '', new Date(), 0, '', '', '', 0, 0);
+  model: CreateScoreDto;
+  tours: Tour[];
   competitors: Participant[];
   sports: Sport[];
   submitted = false;
 
-  constructor(private participantSvc: ParticipantService, private sportSvc: SportService, private scoreSvc: ScoreService) { }
+  constructor(private tourSvc: TourService,
+              private participantSvc: ParticipantService,
+              private sportSvc: SportService,
+              private scoreSvc: ScoreService) { }
 
   ngOnInit() {
     let tourId = 1;
+    this.tourSvc.getOngoing().subscribe((data: Tour[]) => {
+      this.tours = data;
+    });
     this.participantSvc.getByTour(tourId).subscribe((data: Participant[]) => {
       this.competitors = data;
     });
     this.sportSvc.getByTour(tourId).subscribe((data: Sport[]) => {
       this.sports = data;
     });
+    this.model = new CreateScoreDto(tourId, '', 0, new Date(), 0, '', 'admin');
   }
 
-  onSubmit(formData: any) {
-    alert('hej apa!');
+  onSubmit() {
     this.submitted = true;
-    this.saveScore(formData);
+    this.saveScore(this.model);
   }
 
-  saveScore(data: any) {
-    this.scoreSvc.saveScore(data)
+  saveScore(data: CreateScoreDto) {
+    this.scoreSvc.createScore(data)
       .subscribe(
         (resp: any) => {
           // Allt OK
@@ -47,6 +56,7 @@ export class RegisterScoreComponent implements OnInit {
         },
         (res: any) => {
           // Error - något gick fel
+          this.submitted = false;
           console.error('Ospecificerat fel: ' + res.message);
         }
       );

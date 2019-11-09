@@ -4,8 +4,10 @@
         <form (ngSubmit)="onSubmit()" #scoreForm="ngForm">
             <div class="form-group">
                 <label for="tourId">Tour</label>
-                <input type="text" class="form-control" id="tourId" required 
-                    [(ngModel)]="model.tourId" name="tourId" #name="ngModel">
+                <select class="form-control" id="tourId" required
+                    [(ngModel)]="model.tourId" name="tourId" #tourId="ngModel">
+                    <option *ngFor="let tour of tours" [value]="tour.tourId">{{tour.name}}</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="participantId">Competitor</label>
@@ -36,7 +38,9 @@
                 <input type="text" class="form-control" id="notes" 
                     [(ngModel)]="model.notes" name="notes" #name="ngModel">
             </div>
-            <button type="submit" class="btn btn-success" [disabled]="!scoreForm.form.valid">Submit</button>
+            <input type="text" class="form-control" id="createdBy" 
+                [(ngModel)]="model.createdBy" name="createdBy" #createdBy="ngModel">
+    <button type="submit" class="btn btn-success" [disabled]="!scoreForm.form.valid">Submit</button>
         </form>
     </div>
 </div>

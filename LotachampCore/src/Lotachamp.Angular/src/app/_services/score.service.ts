@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Score } from '../_models/score.model';
+import { CreateScoreDto } from '../_models/create-score-dto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,9 @@ export class ScoreService {
     return this.http.get(url);
   }
 
-  saveScore(data: any) {
-    let url = environment.apiRootUrl + '/api/Score/Save';
-    return this.http.post(url, data);
+  createScore(data: CreateScoreDto) {
+    let url = environment.apiRootUrl + '/api/Score/Create';
+    return this.http.post<CreateScoreDto>(url, data);
   }
 
 }

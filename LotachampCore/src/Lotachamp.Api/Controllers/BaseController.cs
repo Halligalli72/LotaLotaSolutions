@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Lotachamp.Api.Controllers
 {
     [ApiController]
+    [Produces("application/json")]
     [Route("api/[controller]/[action]")]
     public class BaseController : ControllerBase
     {

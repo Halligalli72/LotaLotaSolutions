@@ -89,11 +89,11 @@ namespace Lotachamp.Api.Controllers
             }
         }
 
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [HttpPost]
-        public IActionResult Save([FromBody] CreateScoreDto dto) 
+        public IActionResult Create([FromBody] CreateScoreDto dto) 
         {
             try
             {
@@ -106,7 +106,7 @@ namespace Lotachamp.Api.Controllers
                 //    ModelState.AddModelError()...
                 //}
 
-                return NoContent();
+                return Created("", new ScoreDto());
 
             }
             catch (Exception ex)

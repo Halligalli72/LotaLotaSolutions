@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Lotachamp.Api.DataTransfer
 {
+    [Serializable]
     public class CreateScoreDto
     {
         public int TourId { get; set; }
@@ -13,6 +14,7 @@ namespace Lotachamp.Api.DataTransfer
         public DateTime ScoreDate { get; set; }
         public int ResultValue { get; set; }
         public string Notes { get; set; }
+        public string CreatedBy { get; set; }
 
     }
 }

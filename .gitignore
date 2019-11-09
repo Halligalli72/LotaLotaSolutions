@@ -286,5 +286,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
-/GynOp.Angular/dist
 /LotachampCore/.vs
+/LotachampCore/Lotachamp.Api/ClientApp/dist

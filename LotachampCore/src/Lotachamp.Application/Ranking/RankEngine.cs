@@ -10,15 +10,15 @@ namespace Lotachamp.Application.Ranking
 {
     public interface IRankEngine
     {
-        IEnumerable<ScoreBO> Rank(IEnumerable<Score> scores);
-        ScoreBO Rank(Score s);
+        IEnumerable<RankedScore> Rank(IEnumerable<Score> scores);
+        RankedScore Rank(Score s);
     }
 
     public class RankEngine : IRankEngine
     {
         private readonly ILotachampContext _ctx;
 
-        private IList<ScoreBO> _rankedScores = new List<ScoreBO>();
+        private IList<RankedScore> _rankedScores = new List<RankedScore>();
 
         private RankEngine() { }
 
@@ -27,16 +27,16 @@ namespace Lotachamp.Application.Ranking
             _ctx = ctx;
         }
 
-        public ScoreBO Rank(Score s)
+        public RankedScore Rank(Score s)
         {
-            ScoreBO ranked = _rankedScores.Where(o => o.ScoreId.Equals(s.ScoreId)).FirstOrDefault();
+            RankedScore ranked = _rankedScores.Where(o => o.ScoreId.Equals(s.ScoreId)).FirstOrDefault();
             if (ranked != null)
                 return ranked;
 
-            return new ScoreBO(s);
+            return new RankedScore(s);
         }
 
-        public IEnumerable<ScoreBO> Rank(IEnumerable<Score> scores)
+        public IEnumerable<RankedScore> Rank(IEnumerable<Score> scores)
         {
             foreach (var s in scores)
                 yield return Rank(s);

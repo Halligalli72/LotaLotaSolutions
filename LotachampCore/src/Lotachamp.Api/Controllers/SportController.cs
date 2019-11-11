@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Lotachamp.Api.DataTransfer;
+using Lotachamp.Api.Mapping;
+using Lotachamp.Api.ViewModels;
 using Lotachamp.Application.Infrastructure;
 using Lotachamp.Application.Services;
 using Microsoft.AspNetCore.Http;
@@ -25,7 +26,7 @@ namespace Lotachamp.Api.Controllers
         /// </summary>
         /// <param name="id">Sport key</param>
         /// <returns></returns>
-        [ProducesResponseType(typeof(SportDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SportVM), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [HttpGet("{id}")]
@@ -39,7 +40,7 @@ namespace Lotachamp.Api.Controllers
                 var result = _dataSvc.GetById(id);
 
                 if (result != null)
-                    return Ok(result.AsDto());
+                    return Ok(result.AsViewModel());
 
                 return NotFound($"Could not find sport with id: {id}.");
             }
@@ -54,13 +55,13 @@ namespace Lotachamp.Api.Controllers
         /// Returns all sports
         /// </summary>
         /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<SportDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<SportVM>), StatusCodes.Status200OK)]
         [HttpGet]
         public IActionResult GetAll()
         {
             try
             {
-                return Ok(_dataSvc.GetAll().AsDtos());
+                return Ok(_dataSvc.GetAll().AsViewModels());
             }
             catch (Exception ex)
             {
@@ -74,13 +75,13 @@ namespace Lotachamp.Api.Controllers
         /// </summary>
         /// <param name="tourId">Tour key</param>
         /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<SportDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<SportVM>), StatusCodes.Status200OK)]
         [HttpGet("{tourId}")]
         public IActionResult GetByTour(int tourId)
         {
             try
             {
-                return Ok(_dataSvc.GetByTour(tourId).AsDtos());
+                return Ok(_dataSvc.GetByTour(tourId).AsViewModels());
             }
             catch (Exception ex)
             {

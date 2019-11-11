@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Lotachamp.Api.DataTransfer;
+using Lotachamp.Api.Mapping;
+using Lotachamp.Api.ViewModels;
 using Lotachamp.Application.Infrastructure;
 using Lotachamp.Application.Ranking;
 using Lotachamp.Application.Services;
@@ -26,7 +27,7 @@ namespace Lotachamp.Api.Controllers
         /// </summary>
         /// <param name="id">Score key</param>
         /// <returns></returns>
-        [ProducesResponseType(typeof(ScoreDto),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ScoreVM),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [HttpGet("{id}")]
@@ -39,7 +40,7 @@ namespace Lotachamp.Api.Controllers
 
                 var result = _dataSvc.GetById(id);
                 if (result != null)
-                    return Ok(result.AsDto());
+                    return Ok(result.AsViewModel());
 
                 return NotFound($"Could not find score with id: {id}.");
             }
@@ -54,13 +55,13 @@ namespace Lotachamp.Api.Controllers
         /// Returns all scores
         /// </summary>
         /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<ScoreDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<ScoreVM>), StatusCodes.Status200OK)]
         [HttpGet]
         public IActionResult GetAll() 
         {
             try
             {
-                return Ok(_dataSvc.GetAll().AsDtos());
+                return Ok(_dataSvc.GetAll().AsViewModels());
             }
             catch (Exception ex)
             {
@@ -74,13 +75,13 @@ namespace Lotachamp.Api.Controllers
         /// </summary>
         /// <param name="tourId"></param>
         /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<ScoreDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<ScoreVM>), StatusCodes.Status200OK)]
         [HttpGet("{tourId}")]
         public IActionResult GetByTour(int tourId)
         {
             try
             {
-                return Ok(_dataSvc.GetByTour(tourId).AsDtos());
+                return Ok(_dataSvc.GetByTour(tourId).AsViewModels());
             }
             catch (Exception ex)
             {
@@ -93,7 +94,7 @@ namespace Lotachamp.Api.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [HttpPost]
-        public IActionResult Create([FromBody] CreateScoreDto dto) 
+        public IActionResult Create([FromBody] ScoreFormVM dto) 
         {
             try
             {
@@ -106,7 +107,7 @@ namespace Lotachamp.Api.Controllers
                 //    ModelState.AddModelError()...
                 //}
 
-                return Created("", new ScoreDto());
+                return Created("", new ScoreVM());
 
             }
             catch (Exception ex)

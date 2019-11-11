@@ -10,11 +10,11 @@ namespace Lotachamp.Application.Services
 {
     public interface IScoreService
     {
-        IEnumerable<ScoreBO> GetAll();
-        ScoreBO GetById(Guid scoreId);
-        IEnumerable<ScoreBO> GetByTour(int tourId);
-        IEnumerable<ScoreBO> GetLatest(int limit);
-        IEnumerable<ScoreBO> GetLatest(int tourId, int limit);
+        IEnumerable<Score> GetAll();
+        Score GetById(Guid scoreId);
+        IEnumerable<Score> GetByTour(int tourId);
+        IEnumerable<Score> GetLatest(int limit);
+        IEnumerable<Score> GetLatest(int tourId, int limit);
     }
 
     public class ScoreService : IScoreService
@@ -28,19 +28,19 @@ namespace Lotachamp.Application.Services
             _rankEngine = rankEngine;
         }
 
-        public IEnumerable<ScoreBO> GetAll()
+        public IEnumerable<Score> GetAll()
         {
             return _rankEngine.Rank(_ctx.Scores.AsEnumerable());
         }
 
-        public IEnumerable<ScoreBO> GetByTour(int tourId)
+        public IEnumerable<Score> GetByTour(int tourId)
         {
             return _rankEngine.Rank(_ctx.Scores
                 .Where(o => o.Sport.TourId.Equals(tourId))
                 .AsEnumerable());
         }
 
-        public IEnumerable<ScoreBO> GetLatest(int limit)
+        public IEnumerable<Score> GetLatest(int limit)
         {
             return _rankEngine.Rank(_ctx.Scores
                 .OrderByDescending(o => o.Created)
@@ -48,7 +48,7 @@ namespace Lotachamp.Application.Services
                 .AsEnumerable());
         }
 
-        public IEnumerable<ScoreBO> GetLatest(int tourId, int limit)
+        public IEnumerable<Score> GetLatest(int tourId, int limit)
         {
             return _rankEngine.Rank(_ctx.Scores
                 .Where(o => o.Sport.TourId.Equals(tourId))
@@ -57,7 +57,7 @@ namespace Lotachamp.Application.Services
                 .AsEnumerable());
         }
 
-        public ScoreBO GetById(Guid scoreId)
+        public Score GetById(Guid scoreId)
         {
             return _rankEngine.Rank(_ctx.Scores
                 .Where(o => o.ScoreId.Equals(scoreId))

@@ -5,14 +5,14 @@ using System.Text;
 
 namespace Lotachamp.Application.BusinessObjects
 {
-    public class ScoreBO : Score
+    public class RankedScore : Score
     {
         public int? Rank { get; set; }
         public int Points { get; set; }
 
-        private ScoreBO() { }
+        private RankedScore() { }
 
-        public ScoreBO(Score s) 
+        public RankedScore(Score s) 
         {
             this.ScoreId = s.ScoreId;
             this.SportId = s.SportId;

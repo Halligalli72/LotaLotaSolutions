@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Lotachamp.Api.DataTransfer
+namespace Lotachamp.Api.ViewModels
 {
+    /// <summary>
+    /// View model for create/update score form
+    /// </summary>
     [Serializable]
-    public class CreateScoreDto
+    public class ScoreFormVM
     {
         public int TourId { get; set; }
         public Guid ParticipantId { get; set; }

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterScoreComponent } from './register-score.component';
+import { FormBuilder, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('RegisterScoreComponent', () => {
   let component: RegisterScoreComponent;
@@ -8,7 +10,9 @@ describe('RegisterScoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegisterScoreComponent ]
+      imports: [ReactiveFormsModule, FormsModule, HttpClientModule],
+      declarations: [ RegisterScoreComponent ],
+      providers: [FormBuilder ]
     })
     .compileComponents();
   }));

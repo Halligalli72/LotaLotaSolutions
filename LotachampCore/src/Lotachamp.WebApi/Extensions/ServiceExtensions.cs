@@ -27,8 +27,8 @@ namespace Lotachamp.Api.Extensions
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Lotachamp API",
-                    Description = "A simple example ASP.NET Core Web API"
+                    Title = "Lotachamp WebApi",
+                    Description = "A simple example of an ASP.NET Core 3.0 Web API"
                 });
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";

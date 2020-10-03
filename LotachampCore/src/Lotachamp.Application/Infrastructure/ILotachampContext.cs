@@ -18,7 +18,7 @@ namespace Lotachamp.Application.Infrastructure
         DbSet<Score> Scores{ get; set; }
         DbSet<Sport> Sports { get; set; }
         DbSet<SportTemplate> SportTemplates { get; set; }
-        DbSet<Tour> Tours { get; set; }
+        DbSet<Tournament> Tours { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 

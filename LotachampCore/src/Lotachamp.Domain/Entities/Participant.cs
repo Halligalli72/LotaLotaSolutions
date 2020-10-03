@@ -25,7 +25,7 @@ namespace Lotachamp.Domain.Entities
         public bool IsTourOfficial { get; set; }
 
         public virtual Invite Invite { get; set; }
-        public virtual Tour Tour { get; set; }
+        public virtual Tournament Tour { get; set; }
         public virtual ICollection<Score> Scores { get; private set; }
     }
 }

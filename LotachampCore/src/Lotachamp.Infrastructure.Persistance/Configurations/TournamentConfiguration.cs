@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Lotachamp.Infrastructure.Persistance.Configurations
 {
-    public class TourConfiguration : IEntityTypeConfiguration<Tour>
+    public class TournamentConfiguration : IEntityTypeConfiguration<Tournament>
     {
-        public void Configure(EntityTypeBuilder<Tour> builder)
+        public void Configure(EntityTypeBuilder<Tournament> builder)
         {
-            builder.ToTable("Tour");
-            builder.Property(p => p.TourId).IsRequired().UseIdentityColumn();
+            builder.ToTable("Tournament");
+            builder.Property(p => p.TournamentId).IsRequired().UseIdentityColumn();
             builder.Property(p => p.Name).IsRequired().HasMaxLength(50);
             builder.Property(p => p.Description).IsRequired().HasMaxLength(255);
             builder.Property(p => p.StartDate).IsRequired();

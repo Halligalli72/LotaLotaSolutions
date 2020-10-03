@@ -10,12 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lotachamp.Api.Controllers
 {
-    public class TourController : BaseController
+    public class TournamentController : BaseController
     {
         private readonly ILoggerService _logger;
-        private readonly ITourService _dataSvc;
+        private readonly ITournamentService _dataSvc;
 
-        public TourController(ILoggerService logger, ITourService tourSvc)
+        public TournamentController(ILoggerService logger, ITournamentService tourSvc)
         {
             _logger = logger;
             _dataSvc = tourSvc;
@@ -26,7 +26,7 @@ namespace Lotachamp.Api.Controllers
         /// </summary>
         /// <param name="id">Tour key</param>
         /// <returns></returns>
-        [ProducesResponseType(typeof(TourVM), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(TournamentVM), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [HttpGet("{id}")]
@@ -55,7 +55,7 @@ namespace Lotachamp.Api.Controllers
         /// Returns all tours
         /// </summary>
         /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<TourVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<TournamentVM>), StatusCodes.Status200OK)]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -74,7 +74,7 @@ namespace Lotachamp.Api.Controllers
         /// Returns all ended tours 
         /// </summary>
         /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<TourVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<TournamentVM>), StatusCodes.Status200OK)]
         [HttpGet]
         public IActionResult GetEnded()
         {
@@ -93,7 +93,7 @@ namespace Lotachamp.Api.Controllers
         /// Returns all tours that are ongoing
         /// </summary>
         /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<TourVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<TournamentVM>), StatusCodes.Status200OK)]
         [HttpGet]
         public IActionResult GetOngoing()
         {
@@ -113,7 +113,7 @@ namespace Lotachamp.Api.Controllers
         /// </summary>
         /// <param name="appUserId">Application user id</param>
         /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<TourVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<TournamentVM>), StatusCodes.Status200OK)]
         [HttpGet("{appUserId}")]
         public IActionResult GetOngoing(int appUserId)
         {
@@ -132,7 +132,7 @@ namespace Lotachamp.Api.Controllers
         /// Returns all tours that are not started yet
         /// </summary>
         /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<TourVM>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<TournamentVM>), StatusCodes.Status200OK)]
         [HttpGet]
         public IActionResult GetFuture()
         {

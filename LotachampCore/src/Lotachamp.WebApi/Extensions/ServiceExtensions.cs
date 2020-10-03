@@ -80,7 +80,7 @@ namespace Lotachamp.Api.Extensions
             services.AddScoped<IScoreService, ScoreService>();
             services.AddScoped<IParticipantService, ParticipantService>();
             services.AddScoped<ISportService, SportService>();
-            services.AddScoped<ITourService, TourService>();
+            services.AddScoped<ITournamentService, TournamentService>();
         }
 
         public static void ConfigureNotificationService(this IServiceCollection services)

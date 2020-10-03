@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Lotachamp.Domain.Entities
 {
-    public class Tour : BaseEntity
+    public class Tournament : BaseEntity
     {
-        public Tour()
+        public Tournament()
         {
             Name = string.Empty;
             Description = string.Empty;
@@ -17,7 +17,7 @@ namespace Lotachamp.Domain.Entities
             Created = DateTime.Now;
         }
 
-        public int TourId { get; set; }
+        public int TournamentId { get; set; }
         public string Name { get; set; } 
         public string Description { get; set; } 
         public bool IsPublic { get; set; }

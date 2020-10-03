@@ -23,7 +23,7 @@ namespace Lotachamp.Infrastructure.Persistance
 
         public DbSet<Score> Scores { get; set; }
 
-        public DbSet<Tour> Tours { get; set; }
+        public DbSet<Tournament> Tours { get; set; }
 
         public DbSet<Invite> Invites { get; set; }
 

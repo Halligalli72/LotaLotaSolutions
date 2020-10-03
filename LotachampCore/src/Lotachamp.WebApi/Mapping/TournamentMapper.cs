@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace Lotachamp.Api.Mapping
 {
-    public static class TourMapper
+    public static class TournamentMapper
     {
-        public static TourVM AsViewModel(this Tour obj)
+        public static TournamentVM AsViewModel(this Tournament obj)
         {
-            return new List<Tour> { obj }.AsViewModels().Single();
+            return new List<Tournament> { obj }.AsViewModels().Single();
         }
 
-        public static IEnumerable<TourVM> AsViewModels(this IEnumerable<Tour> entities)
+        public static IEnumerable<TournamentVM> AsViewModels(this IEnumerable<Tournament> entities)
         {
             return from e in entities
-                   select new TourVM
+                   select new TournamentVM
                    {
-                       TourId = e.TourId,
+                       TourId = e.TournamentId,
                        Name = e.Name,
                        Description = e.Description,
                        IsPublic = e.IsPublic,

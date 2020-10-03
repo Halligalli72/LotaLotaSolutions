@@ -28,6 +28,6 @@ namespace Lotachamp.Domain.Entities
         public virtual Measurement Measurement { get; set; }
         public virtual RankAlgorithm RankAlgorithm { get; set; }
         public virtual ICollection<Score> Scores { get; private set; }
-        public virtual Tour Tour { get; set; }
+        public virtual Tournament Tour { get; set; }
     }
 }

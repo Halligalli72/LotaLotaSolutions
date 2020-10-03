@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Lotachamp.Api.ViewModels
 {
     /// <summary>
-    /// View model for a tour
+    /// View model for a tournament
     /// </summary>
-    public class TourVM
+    public class TournamentVM
     {
         public int TourId { get; set; } = 0;
         public string Name { get; set; } = string.Empty;
@@ -21,6 +21,9 @@ namespace Lotachamp.Api.ViewModels
         public string CreatedBy { get; set; } = string.Empty;
         public DateTime? Updated { get; set; }
         public string UpdatedBy { get; set; } = string.Empty;
+
+        public IEnumerable<Participant> Participants { get; set; }
+        public IEnumerable<Sport> Sports { get; set; }
     }
 
 }
